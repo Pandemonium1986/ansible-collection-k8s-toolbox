@@ -2,7 +2,7 @@
 galaxy_info:
   role_name:           kubectl
   author:              Michael Maffait
-  description:         Install and configure kubectl.
+  description:         Install kubectl using native package management.
   # company:           your company (optional)
   license:             MIT
   min_ansible_version: 2.9
