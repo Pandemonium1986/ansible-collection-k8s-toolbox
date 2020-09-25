@@ -1,0 +1,3 @@
+---
+apt_dists: xenial
+yum_repo:  el7
