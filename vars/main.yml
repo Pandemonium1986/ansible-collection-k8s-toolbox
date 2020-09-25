@@ -1,2 +1,3 @@
 ---
-# vars file for ansible-role-kubectl
+apt_dists: xenial
+yum_repo:  el7
