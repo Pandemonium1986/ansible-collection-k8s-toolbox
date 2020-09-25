@@ -1,10 +1,10 @@
 # Ansible role : Kubectl
 
-![Ansible Role](https://img.shields.io/ansible/role/36274?logo=ansible)
+![Ansible Role](https://img.shields.io/ansible/role/50928?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectl/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-kubectl.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-kubectl.svg?logo=github)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/36274?logo=ansible)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/50928?logo=ansible)
 
 Install and configure kubectl.
 
