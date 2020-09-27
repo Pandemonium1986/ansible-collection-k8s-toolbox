@@ -1,0 +1,45 @@
+---
+- name:              Verify
+  hosts:             all
+  gather_facts:      true
+  tasks:
+  - name:            Run minikube as a privileged user
+    block:
+    - name:          Am I privileged ?
+      command:
+        cmd:         whoami
+      register:      whoami_result_priv
+      ignore_errors: true
+    - name:          Run minikube (privileged user)
+      command:
+        cmd:         minikube version
+      register:      minikube_result_priv
+      ignore_errors: true
+    - name:          Ensure minikube is installed and running (privileged user)
+      assert:
+        that:
+        - minikube_result_priv.rc == 0
+        fail_msg:    "minikube does not seem to be available for the user {{ whoami_result_priv.stdout }}"
+        success_msg:  "minikube is available for the user {{ whoami_result_priv.stdout }} : {{ minikube_result_priv.stdout }}"
+    become:          true
+    become_user:     root
+  - name:            Run minikube as a non-privileged user
+    block:
+    - name:          Am I without privilege ?
+      command:
+        cmd:         whoami
+      register:      whoami_result_nopriv
+      ignore_errors: true
+    - name:          Run minikube (non-privileged user)
+      command:
+        cmd:         minikube version
+      register:      minikube_result_nopriv
+      ignore_errors: true
+    - name:          Ensure minikube is installed and running (non-privileged user)
+      assert:
+        that:
+        - minikube_result_nopriv.rc == 0
+        fail_msg:    "minikube does not seem to be available for the user {{ whoami_result_nopriv.stdout }}"
+        success_msg:  "minikube is available for the user {{ whoami_result_nopriv.stdout }} : {{ minikube_result_nopriv.stdout }}"
+    become:          true
+    become_user:     pandemonium

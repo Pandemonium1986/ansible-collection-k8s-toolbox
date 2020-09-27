@@ -1,0 +1,3 @@
+---
+- name:          Ensure minikube is installed according to the variety of the OS
+  include_tasks: setup-{{ ansible_distribution_file_variety|lower }}.yml
