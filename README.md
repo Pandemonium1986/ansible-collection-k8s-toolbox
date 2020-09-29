@@ -6,7 +6,7 @@
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-kubectx.svg?logo=github)
 ![Ansible Quality Score](https://img.shields.io/ansible/quality/50928?logo=ansible)
 
-Install and configure kubectx.
+Installs kubectx and kubens from github repository.
 
 ## Requirements
 
@@ -21,10 +21,7 @@ This role is not self contained. He requires pandemonium1986.kubectl to work cor
 From defaults/main.yml :
 
 ```yaml
----
 kubectx_path:    "/opt/github"
-kubectx_users:
-  - pandemonium
 kubectx_version: master
 ```
 

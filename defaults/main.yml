@@ -1,5 +1,3 @@
 ---
 kubectx_path:    "/opt/github"
-kubectx_users:
-  - pandemonium
 kubectx_version: master
