@@ -12,7 +12,7 @@
       ignore_errors: true
     - name:          Run kubectx (privileged user)
       command:
-        cmd:         kubectx version --short=true --client=true
+        cmd:         kubectx --help
       register:      kubectx_result_priv
       ignore_errors: true
     - name:          Ensure kubectx is installed and running (privileged user)
@@ -32,7 +32,7 @@
       ignore_errors: true
     - name:          Run kubectx (non-privileged user)
       command:
-        cmd:         kubectx version --short=true --client=true
+        cmd:         kubectx --help
       register:      kubectx_result_nopriv
       ignore_errors: true
     - name:          Ensure kubectx is installed and running (non-privileged user)
