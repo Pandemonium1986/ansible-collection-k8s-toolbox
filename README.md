@@ -1,10 +1,10 @@
 # Ansible role : kubectx
 
-![Ansible Role](https://img.shields.io/ansible/role/50928?logo=ansible)
+![Ansible Role](https://img.shields.io/ansible/role/51012?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectx/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-kubectx.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-kubectx.svg?logo=github)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/50928?logo=ansible)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/51012?logo=ansible)
 
 Installs kubectx and kubens from github repository.
 
