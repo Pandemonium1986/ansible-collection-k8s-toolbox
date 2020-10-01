@@ -1,0 +1,19 @@
+---
+- name:       Ensure stern_path directory is created
+  file:
+    path:     "{{ stern_path }}"
+    state:    directory
+    mode:     "0755"
+
+- name:       Ensure stern is installed
+  get_url:
+    url:      "https://github.com/wercker/stern/releases/download/{{ stern_version }}/stern_linux_amd64"
+    dest:     "{{ stern_path }}"
+    checksum: "{{ stern_checksum }}"
+    mode:     "0755"
+
+- name:       Ensure stern link is created
+  file:
+    src:      "{{ stern_path }}/stern_linux_amd64"
+    dest:     "/usr/local/bin/stern"
+    state:    link
