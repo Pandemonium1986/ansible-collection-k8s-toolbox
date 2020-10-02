@@ -17,9 +17,10 @@ This role is self contained and install k9s for debian, ubuntu, linux mint, cent
 From defaults/main.yml :
 
 ```yaml
-k9s_installation_path:     "/opt/github/wercker/k9s"
-k9s_checksum: "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
-k9s_version:  "1.11.0"
+k9s_cache_path:        "/var/cache/github"
+k9s_installation_path: "/opt/github/k9s"
+k9s_checksum:          "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
+k9s_version:           "v0.22.1"
 ```
 
 ## Dependencies
