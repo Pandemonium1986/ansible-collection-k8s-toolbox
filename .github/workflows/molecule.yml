@@ -1,0 +1,48 @@
+---
+name:                      "Molecule: Github actions pipeline"
+on:
+  push:
+    branches:
+      - develop
+env:
+  PY_COLORS:               "1"
+  ANSIBLE_FORCE_COLOR:     "1"
+  PYTHON_VERSION:          "3.6"
+jobs:
+  init:
+    name:                  "Init: Job"
+    runs-on:               ubuntu-18.04
+    steps:
+      - name:              "Init: Run checkout@v2"
+        uses:              actions/checkout@v2
+      - name:              "Init: Run setup-python@v2 for ${{ env.PYTHON_VERSION }}"
+        uses:              actions/setup-python@v2
+        with:
+          python-version:  ${{ env.PYTHON_VERSION }}
+      - name:              "Init: Install dependencies"
+        run:               |
+          curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+          sudo apt remove python3-yaml
+          sudo python3 /tmp/get-pip.py
+          sudo python3 -m pip install --upgrade pip
+          sudo python3 -m pip install wheel setuptools molecule[docker]
+        working-directory: /tmp
+      - name:              "Ansible: Lint role"
+        uses:              ansible/ansible-lint-action@master
+        with:
+          targets:         "./"
+      - name:              "Molecule: Create"
+        run:               |
+          molecule create
+      - name:              "Molecule: Converge"
+        run:               |
+          molecule converge
+      - name:              "Molecule: Idempotence"
+        run:               |
+          molecule idempotence
+      - name:              "Molecule: Verify"
+        run:               |
+          molecule verify
+      - name:              "Molecule: Destroy"
+        run:               |
+          molecule destroy

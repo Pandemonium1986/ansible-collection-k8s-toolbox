@@ -1,0 +1,29 @@
+---
+- name:         Ensure k9s directory are created
+  file:
+    path:       "{{ item }}"
+    state:      directory
+    mode:       "0755"
+  loop:
+    - "{{ k9s_cache_path }}"
+    - "{{ k9s_installation_path }}"
+
+- name:         Ensure k9s is installed
+  get_url:
+    url:        "https://github.com/derailed/k9s/releases/download/{{ k9s_version }}/k9s_Linux_x86_64.tar.gz"
+    dest:       "{{ k9s_cache_path }}"
+    checksum:   "{{ k9s_checksum }}"
+    mode:       "0755"
+
+- name:         Unarchive k9s archive into k9s_installation_path
+  unarchive:
+    src:        "{{ k9s_cache_path }}/k9s_Linux_x86_64.tar.gz"
+    dest:       "{{ k9s_installation_path }}"
+    remote_src: true
+
+
+- name:         Ensure k9s link is created
+  file:
+    src:        "{{ k9s_installation_path }}/k9s"
+    dest:       "/usr/local/bin/k9s"
+    state:      link
