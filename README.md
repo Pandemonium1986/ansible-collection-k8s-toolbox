@@ -1,10 +1,10 @@
 # Ansible role : k9s
 
-![Ansible Role](https://img.shields.io/ansible/role/51037?logo=ansible)
+![Ansible Role](https://img.shields.io/ansible/role/51049?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-k9s/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-k9s.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-k9s.svg?logo=github)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/51037?logo=ansible)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/51049?logo=ansible)
 
 Install and configure k9s from github repository.
 
