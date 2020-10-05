@@ -1,0 +1,29 @@
+---
+- name:         Ensure helm directory are created
+  file:
+    path:       "{{ item }}"
+    state:      directory
+    mode:       "0755"
+  loop:
+    - "{{ helm_cache_path }}"
+    - "{{ helm_installation_path }}"
+
+- name:         Ensure helm is installed
+  get_url:
+    url:        "{{ helm_url }}/{{ asset_name }}"
+    dest:       "{{ helm_cache_path }}"
+    checksum:   "{{ helm_checksum }}"
+    mode:       "0755"
+
+- name:         Unarchive helm archive into helm_installation_path
+  unarchive:
+    src:        "{{ helm_cache_path }}/{{ asset_name }}"
+    dest:       "{{ helm_installation_path }}"
+    remote_src: true
+    mode:         "0755"
+
+- name:         Ensure helm link is created
+  file:
+    src:        "{{ helm_installation_path }}/{{ platform_name }}/{{ binary_name }}"
+    dest:       "/usr/local/bin/{{ binary_name }}"
+    state:      link
