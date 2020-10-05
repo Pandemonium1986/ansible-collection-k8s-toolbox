@@ -1,10 +1,10 @@
 # Ansible role : helm
 
-![Ansible Role](https://img.shields.io/ansible/role/51049?logo=ansible)
+![Ansible Role](https://img.shields.io/ansible/role/51080?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-helm.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-helm.svg?logo=github)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/51049?logo=ansible)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/51080?logo=ansible)
 
 Install and configure helm from github repository.
 
