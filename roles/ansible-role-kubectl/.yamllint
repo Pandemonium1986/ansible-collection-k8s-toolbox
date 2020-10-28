@@ -1,0 +1,55 @@
+---
+
+extends:                      default
+
+rules:
+  braces:
+    level:                    error
+    min-spaces-inside:        1
+    max-spaces-inside:        1
+    min-spaces-inside-empty:  0
+    max-spaces-inside-empty:  0
+  brackets:
+    level:                    error
+    min-spaces-inside:        1
+    max-spaces-inside:        1
+    min-spaces-inside-empty:  0
+    max-spaces-inside-empty:  0
+  colons:
+    level:                    error
+    max-spaces-before:        0
+    max-spaces-after:         -1
+  commas:
+    level:                    error
+    max-spaces-before:        0
+    min-spaces-after:         1
+    max-spaces-after:         1
+  comments:
+    level:                    warning
+    require-starting-space:   true
+    min-spaces-from-content:  1
+  comments-indentation:
+    level:                    warning
+  document-start:
+    level:                    error
+    present:                  true
+  empty-lines:
+    level:                    error
+    max-start:                0
+    max-end:                  1
+    max:                      1
+  empty-values:
+    level:                    warning
+  hyphens:
+    level:                    error
+    max-spaces-after:         1
+  indentation:
+    level:                    warning
+    spaces:                   2
+    indent-sequences:         consistent
+    check-multi-line-strings: false
+  line-length:                disable
+
+  # quoted-strings:
+  #   level:                  warning
+  #   quote-type:             double
