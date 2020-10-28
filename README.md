@@ -1,92 +1,83 @@
-# Template
+# Ansible Collection - k8s toolbox
 
-![Ansible Role](https://img.shields.io/ansible/role/36274?logo=ansible)
-![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline/Pandemonium1986/ansible-role-init?logo=gitlab)
-![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-init.svg?logo=github)
-![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-init.svg?logo=github)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/36274?logo=ansible)
+![](https://img.shields.io/github/release/Pandemonium1986/ansible-collection-openstack.svg)
+![](https://img.shields.io/github/repo-size/Pandemonium1986/ansible-collection-openstack.svg)
+![](https://img.shields.io/github/release-date/Pandemonium1986/ansible-collection-openstack.svg)
+![](https://img.shields.io/github/license/Pandemonium1986/ansible-collection-openstack.svg)
 
-One Paragraph of project description goes here
+![Ansible Role](https://img.shields.io/ansible/role/51080?logo=ansible)
+![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
+![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-helm.svg?logo=github)
+![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-helm.svg?logo=github)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/51080?logo=ansible)
+
+This [Ansible Collection](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) "k8s toolbox" contains roles and playbooks to deploy and configured tools to managed a kubernetes cluster.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This collection contains the following ressources.
+
+| Ressources         | Comment                                                                        | Privilege |
+| :----------------- | :----------------------------------------------------------------------------- | :-------: |
+| **roles/helm**     | Install and configures python pip globally.                                    |    true   |
+| **roles/k9s**      | Install openstacksdk and checks if clouds.yaml is available to the local user. |    true   |
+| **roles/kubectl**  | Generate resources in an openstack tenant from the local user's runtime.       |    true   |
+| **roles/kubectx**  | Deploying vms in the openstack tenant from the local 's runtime.               |    true   |
+| **roles/minikube** | Deploying vms in the openstack tenant from the local 's runtime.               |    true   |
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```yaml
-Give examples
-```
+The only prerequisite is to have an [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html) >= 2.9
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```yaml
-Give the example
-```
-
-And repeat
-
-```yaml
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```yaml
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```yaml
-Give an example
+```sh
+ansible-galaxy collection install pandemonium1986.k8s_toolbox
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+TBD
 
-## Built With
+Next, you need to create a playbook that may be briefly similar to this one :
 
--   [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html) - Provisioning
--   [Vagrant](https://www.vagrantup.com/downloads.html) - To build and manage the box.
--   [VirtualBox](https://www.virtualbox.org/wiki/Downloads) - The only provider available.
+```yaml
+---
+- name :                                     K8s Toolbox deployement
+  hosts:                                     local
+  become:                                    true
+  collections:
+   - pandemonium1986.k8s_toolbox
+  vars:
+    TBD
+  tasks:
+    - import_role:
+        name:    pandemonium1986.minikube
+    - import_role:
+        name:    pandemonium1986.kubectx
+    - import_role:
+        name:    pandemonium1986.k9s
+    - import_role:
+        name:    pandemonium1986.stern
+    - import_role:
+        name:    pandemonium1986.helm
+```
+
+Available variables are :
+
+```yaml
+TBD
+```
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+<https://github.com/hraban/tomono>
+<https://github.com/splitsh/lite>
 
 ## Authors
 
 -   **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
-
-## Source
-
--   [PurpleBooth/README-Template.md](https://gist.githubusercontent.com/PurpleBooth/109311bb0361f32d87a2/raw/8254b53ab8dcb18afc64287aaddd9e5b6059f880/README-Template.md/)
--   [PurpleBooth/Good-CONTRIBUTING.md-template.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
