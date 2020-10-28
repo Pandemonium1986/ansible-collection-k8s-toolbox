@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  role_name:           stern
+  author:              Michael Maffait
+  description:         Installs stern from github repository.
+  # company:           your company (optional)
+  license:             MIT
+  min_ansible_version: 2.9
+  github_branch:       master
+  platforms:
+    - name:            Debian
+      versions:        [ 'stretch', 'buster' ]
+    - name:            EL
+      versions:        [ '7', '8' ]
+    - name:            Ubuntu
+      versions:        [ 'bionic' ]
+  galaxy_tags:         [ 'kubernetes', 'tool', 'k8s' ]
+dependencies:          []
