@@ -1,0 +1,29 @@
+---
+- name:         Ensure k9s directory are created
+  file:
+    path:       "{{ item }}"
+    state:      directory
+    mode:       "0755"
+  loop:
+    - "{{ k9s_cache_path }}"
+    - "{{ k9s_installation_path }}"
+
+- name:         Ensure k9s is installed
+  get_url:
+    url:        "{{ github_url }}/{{ github_namespace }}/releases/download/{{ k9s_version }}/{{ asset_name }}"
+    dest:       "{{ k9s_cache_path }}"
+    checksum:   "{{ k9s_checksum }}"
+    mode:       "0755"
+
+- name:         Unarchive k9s archive into k9s_installation_path
+  unarchive:
+    src:        "{{ k9s_cache_path }}/{{ asset_name }}"
+    dest:       "{{ k9s_installation_path }}"
+    remote_src: true
+    mode:         "0755"
+
+- name:         Ensure k9s link is created
+  file:
+    src:        "{{ k9s_installation_path }}/{{ binary_name }}"
+    dest:       "/usr/local/bin/{{ binary_name }}"
+    state:      link
