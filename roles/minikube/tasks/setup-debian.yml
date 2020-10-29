@@ -1,0 +1,13 @@
+---
+- name:           Ensure apt-transport-https is installed
+  apt:
+    name:
+      - apt-transport-https
+      - gpg
+    update_cache: true
+    state:        present
+
+- name:           Ensure minikube is installed
+  apt:
+    deb:          "https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb"
+    state:        present
