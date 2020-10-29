@@ -1,0 +1,45 @@
+---
+- name:              Verify
+  hosts:             all
+  gather_facts:      true
+  tasks:
+  - name:            Run stern as a privileged user
+    block:
+    - name:          Am I privileged ?
+      command:
+        cmd:         whoami
+      register:      whoami_result_priv
+      ignore_errors: true
+    - name:          Run stern (privileged user)
+      command:
+        cmd:         /usr/local/bin/stern --version
+      register:      stern_result_priv
+      ignore_errors: true
+    - name:          Ensure stern is installed and running (privileged user)
+      assert:
+        that:
+        - stern_result_priv.rc == 0
+        fail_msg:    "stern does not seem to be available for the user {{ whoami_result_priv.stdout }}"
+        success_msg:  "stern is available for the user {{ whoami_result_priv.stdout }} : {{ stern_result_priv.stdout }}"
+    become:          true
+    become_user:     root
+  - name:            Run stern as a non-privileged user
+    block:
+    - name:          Am I without privilege ?
+      command:
+        cmd:         whoami
+      register:      whoami_result_nopriv
+      ignore_errors: true
+    - name:          Run stern (non-privileged user)
+      command:
+        cmd:         /usr/local/bin/stern --version
+      register:      stern_result_nopriv
+      ignore_errors: true
+    - name:          Ensure stern is installed and running (non-privileged user)
+      assert:
+        that:
+        - stern_result_nopriv.rc == 0
+        fail_msg:    "stern does not seem to be available for the user {{ whoami_result_nopriv.stdout }}"
+        success_msg:  "stern is available for the user {{ whoami_result_nopriv.stdout }} : {{ stern_result_nopriv.stdout }}"
+    become:          true
+    become_user:     pandemonium
