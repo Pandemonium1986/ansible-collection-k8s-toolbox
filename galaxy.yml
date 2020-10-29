@@ -6,8 +6,8 @@ readme:       README.md
 authors:
 - Michael Maffait <michael.maffait@gmail.com>
 description:  An ansible collection to quickly deploy kubernete management tools.
-license:
-- MIT
+# license:
+# - MIT
 license_file: 'LICENSE'
 tags:         [ 'k8s', 'tool', 'kubernetes' ]
 dependencies: {}
