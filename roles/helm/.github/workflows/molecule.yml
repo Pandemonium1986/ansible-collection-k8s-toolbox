@@ -10,7 +10,7 @@ env:
   PYTHON_VERSION:          "3.6"
 jobs:
   molecule:
-    name:                  "Init: Job"
+    name:                  "Molecule: Job"
     runs-on:               ubuntu-18.04
     steps:
       - name:              "Init: Run checkout@v2"

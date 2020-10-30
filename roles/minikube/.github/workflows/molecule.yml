@@ -9,8 +9,8 @@ env:
   ANSIBLE_FORCE_COLOR:     "1"
   PYTHON_VERSION:          "3.6"
 jobs:
-  init:
-    name:                  "Init: Job"
+  molecule:
+    name:                  "Molecule: Job"
     runs-on:               ubuntu-18.04
     steps:
       - name:              "Init: Run checkout@v2"
@@ -25,7 +25,7 @@ jobs:
           sudo apt remove python3-yaml
           sudo python3 /tmp/get-pip.py
           sudo python3 -m pip install --upgrade pip
-          sudo python3 -m pip install wheel setuptools molecule[docker]
+          sudo python3 -m pip install wheel setuptools molecule[docker]==3.0.8
         working-directory: /tmp
       - name:              "Ansible: Lint role"
         uses:              ansible/ansible-lint-action@master
