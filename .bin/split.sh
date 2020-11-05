@@ -34,8 +34,9 @@ remote ansible-role-kubectx git@github.com:Pandemonium1986/ansible-role-kubectx.
 remote ansible-role-minikube git@github.com:Pandemonium1986/ansible-role-minikube.git
 remote ansible-role-stern git@github.com:Pandemonium1986/ansible-role-stern.git
 
-split 'ansible-role-k9s' ansible-role-k9s
-split 'ansible-role-kubectl' ansible-role-kubectl
-split 'ansible-role-kubectx' ansible-role-kubectx
-split 'ansible-role-minikube' ansible-role-minikube
-split 'ansible-role-stern' ansible-role-stern
+split 'role/helm' ansible-role-helm
+split 'role/k9s' ansible-role-k9s
+split 'role/kubectl' ansible-role-kubectl
+split 'role/kubectx' ansible-role-kubectx
+split 'role/minikube' ansible-role-minikube
+split 'role/stern' ansible-role-stern
