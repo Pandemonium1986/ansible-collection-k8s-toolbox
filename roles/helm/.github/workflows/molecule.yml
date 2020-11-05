@@ -1,6 +1,9 @@
 ---
 name:                      "Molecule: Github actions pipeline"
 on:
+  schedule:
+    - cron: "25 23 * * 4"
+    # - cron: "0 21 * * 3"
   push:
     branches:
       - develop
