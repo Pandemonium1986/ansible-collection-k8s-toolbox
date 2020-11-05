@@ -22,7 +22,7 @@ function split()
 
 function remote()
 {
-  git remote add "$1" "$2" || true
+  git remote add "$1" "$2" > /dev/null 2>&1 || true
 }
 
 #git pull origin $CURRENT_BRANCH || true
