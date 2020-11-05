@@ -13,9 +13,9 @@ fi
 function split()
 {
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    SHA1=$(./.bin/splitsh-lite-darwin --prefix="$1")
+    SHA1=$(splitsh-lite-darwin --prefix="$1")
   else
-    SHA1=$(./.bin/splitsh-lite --prefix="$1")
+    SHA1=$(splitsh-lite --prefix="$1")
   fi
   git push "$2" "$SHA1:refs/heads/$CURRENT_BRANCH" -f --no-verify
 }
