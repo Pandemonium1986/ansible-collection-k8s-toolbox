@@ -4,7 +4,6 @@ remote="$1"
 url="$2"
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-chmod +x ./bin/split.sh && ./bin/split.sh $CURRENT_BRANCH
+./.bin/split.sh $CURRENT_BRANCH
 
 exit 0
-
