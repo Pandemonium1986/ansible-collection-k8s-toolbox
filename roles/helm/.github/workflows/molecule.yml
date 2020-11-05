@@ -23,7 +23,7 @@ jobs:
     steps:
       - name:              "Init: Run checkout@v2"
         uses:              actions/checkout@v2
-      - name:              "Init: Run setup-python@v2 for "${{ env.PYTHON_VERSION }}
+      - name:              "Init: Run setup-python@v2"
         uses:              actions/setup-python@v2
         with:
           python-version:  ${{ env.PYTHON_VERSION }}
