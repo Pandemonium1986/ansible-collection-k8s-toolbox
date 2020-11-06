@@ -1,0 +1,9 @@
+#!/bin/sh
+
+remote="$1"
+url="$2"
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+./.bin/split.sh $CURRENT_BRANCH
+
+exit 0
