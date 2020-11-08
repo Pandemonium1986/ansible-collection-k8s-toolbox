@@ -10,14 +10,14 @@ This [Ansible Collection](https://docs.ansible.com/ansible/latest/user_guide/col
 
 This collection contains the following ressources.
 
-| Ressources         | Comment                                                                                    | Privilege |
-| :----------------- | :----------------------------------------------------------------------------------------- | :-------: |
-| **roles/helm**     | Install helm from the github package and make a symbolic link in /usr/local/bin.           |    true   |
-| **roles/k9s**      | Install k9s from the github package and make a symbolic link in /usr/local/bin.            |    true   |
-| **roles/kubectl**  | Install kubectl from google repositories (centos or debian supported).                     |    true   |
-| **roles/kubectx**  | Install kubectx/kubens from the github package and make a symbolic link in /usr/local/bin. |    true   |
-| **roles/minikube** | Install minikube from google repositories (centos or debian supported).                    |    true   |
-| **roles/stern**    | Install stern from the github package and make a symbolic link in /usr/local/bin.          |    true   |
+| Ressources         | Comment                                                                                    | Privilege |                                                                    CI Status                                                                    |
+| :----------------- | :----------------------------------------------------------------------------------------- | :-------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| **roles/helm**     | Install helm from the github package and make a symbolic link in /usr/local/bin.           |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)   |
+| **roles/k9s**      | Install k9s from the github package and make a symbolic link in /usr/local/bin.            |    true   |    ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-k9s/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)   |
+| **roles/kubectl**  | Install kubectl from google repositories (centos or debian supported).                     |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectl/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
+| **roles/kubectx**  | Install kubectx/kubens from the github package and make a symbolic link in /usr/local/bin. |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectx/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
+| **roles/minikube** | Install minikube from google repositories (centos or debian supported).                    |    true   | ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-minikube/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
+| **roles/stern**    | Install stern from the github package and make a symbolic link in /usr/local/bin.          |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-stern/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)  |
 
 ### Prerequisites
 
@@ -41,7 +41,7 @@ Simply create a playbook that may be briefly similar to this one :
   hosts:                                     local
   become:                                    true
   collections:
-   - pandemonium1986.k8s_toolbox
+    - pandemonium1986.k8s_toolbox
   tasks:
     - import_role:
         name:    pandemonium1986.minikube
