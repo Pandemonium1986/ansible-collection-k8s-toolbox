@@ -44,8 +44,9 @@ repos:
     language:    python
     types:       [ file, yaml ]
   - id:          splitsh-lite
-    name:        splitsh-lite hook
+    name:        Splitsh-lite hook
     entry:       ./.bin/split.sh
     description: This hook runs split.sh to split the monorepo to manyrepo
     language:    script
     stages:      [ push ]
+    verbose:     true

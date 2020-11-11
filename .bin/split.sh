@@ -3,12 +3,8 @@
 set -e
 #set -x
 
-if [ -z "$1" ]
-then
-  CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-else
-  CURRENT_BRANCH=$1
-fi
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
 
 function split()
 {
