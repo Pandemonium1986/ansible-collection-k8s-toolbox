@@ -43,3 +43,9 @@ repos:
     description: This hook runs the local installation of yamllint.
     language:    python
     types:       [ file, yaml ]
+  - id:          splitsh-lite
+    name:        splitsh-lite hook
+    entry:       ./.bin/split.sh
+    description: This hook runs split.sh to split the monorepo to manyrepo
+    language:    script
+    stages:      [ push ]
