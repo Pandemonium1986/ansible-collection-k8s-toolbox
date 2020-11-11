@@ -1,6 +1,8 @@
 ---
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
+default_stages:
+  - commit
 repos:
 - repo:          https://github.com/pre-commit/pre-commit-hooks
   rev:           v3.2.0
@@ -28,6 +30,13 @@ repos:
     description: This hook runs the local installation of eclint.
     language:    node
     types:       [ file ]
+  - id:          gitlint
+    name:        Git lint
+    entry:       gitlint
+    description: This hook runs the local installation of gitlint.
+    language:    python
+    stages:      [ commit-msg ]
+    args:        [ --staged, --msg-filename ]
   - id:          yamllint
     name:        Yaml lint
     entry:       yamllint
