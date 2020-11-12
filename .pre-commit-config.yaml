@@ -1,0 +1,54 @@
+---
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_stages:
+  - commit
+repos:
+- repo:          https://github.com/pre-commit/pre-commit-hooks
+  rev:           v3.2.0
+  hooks:
+  - id:          trailing-whitespace
+    stages:      [ commit ]
+  - id:          end-of-file-fixer
+    stages:      [ commit ]
+  - id:          check-yaml
+  - id:          check-added-large-files
+# - repo:        https://github.com/ansible/ansible-lint
+#   rev:         v4.3.7
+#   hooks:
+#   - id:        ansible-lint
+- repo:          local
+  hooks:
+  - id:          ansible-lint
+    name:        Ansible lint
+    entry:       ansible-lint
+    description: This hook runs the local installation of ansible-lint.
+    language:    python
+    types:       [ file, yaml ]
+    files:       \.(yaml|yml)$
+  - id:          eslint
+    name:        Editor Config lint
+    entry:       eclint check
+    description: This hook runs the local installation of eclint.
+    language:    node
+    types:       [ file ]
+  - id:          gitlint
+    name:        Git lint
+    entry:       gitlint
+    description: This hook runs the local installation of gitlint.
+    language:    python
+    stages:      [ commit-msg ]
+    args:        [ --staged, --msg-filename ]
+  - id:          yamllint
+    name:        Yaml lint
+    entry:       yamllint
+    description: This hook runs the local installation of yamllint.
+    language:    python
+    types:       [ file, yaml ]
+  - id:          splitsh-lite
+    name:        Splitsh-lite hook
+    entry:       ./.bin/split.sh
+    description: This hook runs split.sh to split the monorepo to manyrepo
+    language:    script
+    stages:      [ push ]
+    verbose:     true

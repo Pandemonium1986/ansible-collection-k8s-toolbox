@@ -3,6 +3,7 @@
 ![Ansible Collection](https://img.shields.io/badge/collection-pandemonium1986.k8s__toolbox-blue?logo=ansible)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-collection-k8s-toolbox.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-collection-k8s-toolbox.svg?logo=github)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
 This [Ansible Collection](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) "k8s toolbox" contains roles and playbooks to deploy and configured tools to managed a kubernetes cluster.
 
@@ -10,14 +11,14 @@ This [Ansible Collection](https://docs.ansible.com/ansible/latest/user_guide/col
 
 This collection contains the following ressources.
 
-| Ressources         | Comment                                                                                    | Privilege |
-| :----------------- | :----------------------------------------------------------------------------------------- | :-------: |
-| **roles/helm**     | Install helm from the github package and make a symbolic link in /usr/local/bin.           |    true   |
-| **roles/k9s**      | Install k9s from the github package and make a symbolic link in /usr/local/bin.            |    true   |
-| **roles/kubectl**  | Install kubectl from google repositories (centos or debian supported).                     |    true   |
-| **roles/kubectx**  | Install kubectx/kubens from the github package and make a symbolic link in /usr/local/bin. |    true   |
-| **roles/minikube** | Install minikube from google repositories (centos or debian supported).                    |    true   |
-| **roles/stern**    | Install stern from the github package and make a symbolic link in /usr/local/bin.          |    true   |
+| Ressources                                                                      | Comment                                                                                    | Privilege |                                                                    CI Status                                                                    |
+| :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------- | :-------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| **[roles/helm](https://github.com/pandemonium1986/ansible-role-helm)**          | Install helm from the github package and make a symbolic link in /usr/local/bin.           |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)   |
+| **[roles/k9s](https://github.com/pandemonium1986/ansible-role-k9s)**           | Install k9s from the github package and make a symbolic link in /usr/local/bin.            |    true   |    ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-k9s/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)   |
+| **[roles/kubectl](https://github.com/pandemonium1986/ansible-role-kubectl)**   | Install kubectl from google repositories (centos or debian supported).                     |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectl/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
+| **[roles/kubectx](https://github.com/pandemonium1986/ansible-role-kubectx)**   | Install kubectx/kubens from the github package and make a symbolic link in /usr/local/bin. |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectx/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
+| **[roles/minikube](https://github.com/pandemonium1986/ansible-role-minikube)** | Install minikube from google repositories (centos or debian supported).                    |    true   | ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-minikube/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
+| **[roles/stern](https://github.com/pandemonium1986/ansible-role-stern)**       | Install stern from the github package and make a symbolic link in /usr/local/bin.          |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-stern/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)  |
 
 ### Prerequisites
 
@@ -41,7 +42,7 @@ Simply create a playbook that may be briefly similar to this one :
   hosts:                                     local
   become:                                    true
   collections:
-   - pandemonium1986.k8s_toolbox
+    - pandemonium1986.k8s_toolbox
   tasks:
     - import_role:
         name:    pandemonium1986.minikube
@@ -77,6 +78,19 @@ stern_version:           "1.11.0"
 ```
 
 ## Contributing
+
+##### Pre-commit
+
+I use pre commit to manage the commit-msg commit and pre-push hooks.
+To install the hooks proceed as follows
+
+```sh
+pre-commit install --hook-type commit-msg && \
+pre-commit install --hook-type pre-push && \
+pre-commit install
+```
+
+##### Monorepo
 
 The ansible collections are composed of a set of roles/plug-ins/modules ...
 My choice was made to group all the roles in a "monorepo", the collection itself, and to ensure the building of the roles in "manyrepo".
