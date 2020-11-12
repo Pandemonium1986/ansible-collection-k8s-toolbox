@@ -7,7 +7,6 @@
 
 This [Ansible Collection](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) "k8s toolbox" contains roles and playbooks to deploy and configured tools to managed a kubernetes cluster.
 
-
 ## Getting Started
 
 This collection contains the following ressources.
@@ -79,6 +78,19 @@ stern_version:           "1.11.0"
 ```
 
 ## Contributing
+
+##### Pre-commit
+
+I use pre commit to manage the commit-msg commit and pre-push hooks.
+To install the hooks proceed as follows
+
+```sh
+pre-commit install --hook-type commit-msg && \
+pre-commit install --hook-type pre-push && \
+pre-commit install
+```
+
+##### Monorepo
 
 The ansible collections are composed of a set of roles/plug-ins/modules ...
 My choice was made to group all the roles in a "monorepo", the collection itself, and to ensure the building of the roles in "manyrepo".
