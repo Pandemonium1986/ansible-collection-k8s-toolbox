@@ -18,39 +18,31 @@ env:
 
 jobs:
   molecule:
-    name:                  "Molecule: Job"
-    runs-on:               ubuntu-18.04
+    name:     "Molecule: Job"
+    runs-on:  ubuntu-18.04
     steps:
-      - name:              "Init: Run checkout@v2"
-        uses:              actions/checkout@v2
-      - name:              "Init: Run setup-python@v2"
-        uses:              actions/setup-python@v2
-        with:
-          python-version:  ${{ env.PYTHON_VERSION }}
-      - name:              "Init: Install dependencies"
-        run:               |
+      - name: "Init: Run checkout@v2"
+        uses: actions/checkout@v2
+      - name: "Init: Install dependencies"
+        run:  |
           docker pull quay.io/ansible/molecule:${{ env.MOLECULE_VERSION }}
-        working-directory: /tmp
-      # - name:              "Ansible: Lint role"
-      #   uses:              ansible/ansible-lint-action@master
-      #   with:
-      #     targets:         "./"
-      - name:              "Molecule: Create"
-        run:               |
-          docker run -v "$(pwd)":/tmp/$(basename "${PWD}"):ro \
+          docker run --name molecule-container \
+                      -v "$(pwd)":/tmp/$(basename "${PWD}"):ro \
                       -v /var/run/docker.sock:/var/run/docker.sock \
                       -w /tmp/$(basename "${PWD}") \
-                      quay.io/ansible/molecule:3.0.8 \
-                      molecule list
-      - name:              "Molecule: Converge"
-        run:               |
-          molecule converge
-      - name:              "Molecule: Idempotence"
-        run:               |
-          molecule idempotence
-      - name:              "Molecule: Verify"
-        run:               |
-          molecule verify
-      - name:              "Molecule: Destroy"
-        run:               |
-          molecule destroy
+                      quay.io/ansible/molecule:3.0.8
+        working-directory: /tmp
+      - name:              "Ansible: Lint role"
+        uses:              ansible/ansible-lint-action@master
+        with:
+          targets:         "./"
+      - name: "Molecule: Create"
+        run:  docker exec -it molecule-container molecule create
+      - name: "Molecule: Converge"
+        run:  docker exec -it molecule-container molecule converge
+      - name: "Molecule: Idempotence"
+        run:  docker exec -it molecule-container molecule idempotence
+      - name: "Molecule: Verify"
+        run:  docker exec -it molecule-container molecule verify
+      - name: "Molecule: Destroy"
+        run:  docker exec -it molecule-container molecule destroy
