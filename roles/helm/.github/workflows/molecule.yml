@@ -26,23 +26,23 @@ jobs:
       - name: "Init: Install dependencies"
         run:  |
           docker pull quay.io/ansible/molecule:${{ env.MOLECULE_VERSION }}
-          docker run --name molecule-container \
+          docker run -di --name molecule-container \
                       -v "$(pwd)":/tmp/$(basename "${PWD}"):ro \
                       -v /var/run/docker.sock:/var/run/docker.sock \
                       -w /tmp/$(basename "${PWD}") \
-                      quay.io/ansible/molecule:3.0.8
+                      quay.io/ansible/molecule:${{ env.MOLECULE_VERSION }}
         working-directory: /tmp
       - name:              "Ansible: Lint role"
         uses:              ansible/ansible-lint-action@master
         with:
           targets:         "./"
       - name: "Molecule: Create"
-        run:  docker exec -it molecule-container molecule create
+        run:  docker exec molecule-container molecule create
       - name: "Molecule: Converge"
-        run:  docker exec -it molecule-container molecule converge
+        run:  docker exec molecule-container molecule converge
       - name: "Molecule: Idempotence"
-        run:  docker exec -it molecule-container molecule idempotence
+        run:  docker exec molecule-container molecule idempotence
       - name: "Molecule: Verify"
-        run:  docker exec -it molecule-container molecule verify
+        run:  docker exec molecule-container molecule verify
       - name: "Molecule: Destroy"
-        run:  docker exec -it molecule-container molecule destroy
+        run:  docker exec molecule-container molecule destroy
