@@ -10,11 +10,6 @@ on:
     types:
       - main
       - master
-env:
-  ANSIBLE_FORCE_COLOR:         "1"
-  PY_COLORS:                   "1"
-  PYTHON_VERSION:              "3.6"
-  MOLECULE_VERSION:            "3.0.8"
 
 jobs:
   molecule:
@@ -29,9 +24,7 @@ jobs:
           ANSIBLE_FORCE_COLOR: "1"
           PY_COLORS:           "1"
         options:               >-
-          --workdir /opt/workspace
-          --entrypoint /bin/ash
-          --workspace /opt/workspace/${{ github.repository }}
+          --workdir /opt/workspace/${{ github.repository }}
     steps:
       - name:                  "Init: Run checkout@v2"
         uses:                  actions/checkout@v2
