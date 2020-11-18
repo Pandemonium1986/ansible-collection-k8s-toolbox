@@ -2,7 +2,7 @@
 name:                      "Molecule: Github actions pipeline"
 on:
   schedule:
-    - cron:                "0 21 * * *"
+    - cron:                    "0 21 * * *"
   push:
     branches:
       - develop
@@ -11,38 +11,41 @@ on:
       - main
       - master
 env:
-  ANSIBLE_FORCE_COLOR:     "1"
-  PY_COLORS:               "1"
-  PYTHON_VERSION:          "3.6"
-  MOLECULE_VERSION:        "3.0.8"
+  ANSIBLE_FORCE_COLOR:         "1"
+  PY_COLORS:                   "1"
+  PYTHON_VERSION:              "3.6"
+  MOLECULE_VERSION:            "3.0.8"
 
 jobs:
   molecule:
-    name:     "Molecule: Job"
-    runs-on:  ubuntu-18.04
+    name:                      "Molecule: Job"
+    runs-on:                   ubuntu-18.04
+    container:
+        image:                 ghcr.io/pandemonium1986/alpine312:latest
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - ${{ github.repository }}:/opt/workspace/${{ github.repository }}
+        env:
+          ANSIBLE_FORCE_COLOR: "1"
+          PY_COLORS:           "1"
+        options:               >-
+          --workdir /opt/workspace
+          --entrypoint /bin/ash
+          --workspace /opt/workspace/${{ github.repository }}
     steps:
-      - name: "Init: Run checkout@v2"
-        uses: actions/checkout@v2
-      - name: "Init: Install dependencies"
-        run:  |
-          docker pull quay.io/ansible/molecule:${{ env.MOLECULE_VERSION }}
-          docker run -di --name molecule-container \
-                      -v "$(pwd)":/tmp/$(basename "${PWD}"):ro \
-                      -v /var/run/docker.sock:/var/run/docker.sock \
-                      -w /tmp/$(basename "${PWD}") \
-                      quay.io/ansible/molecule:${{ env.MOLECULE_VERSION }}
-        working-directory: /tmp
-      - name:              "Ansible: Lint role"
-        uses:              ansible/ansible-lint-action@master
+      - name:                  "Init: Run checkout@v2"
+        uses:                  actions/checkout@v2
+      - name:                  "Ansible: Lint role"
+        uses:                  ansible/ansible-lint-action@master
         with:
-          targets:         "./"
-      - name: "Molecule: Create"
-        run:  docker exec molecule-container molecule create
-      - name: "Molecule: Converge"
-        run:  docker exec molecule-container molecule converge
-      - name: "Molecule: Idempotence"
-        run:  docker exec molecule-container molecule idempotence
-      - name: "Molecule: Verify"
-        run:  docker exec molecule-container molecule verify
-      - name: "Molecule: Destroy"
-        run:  docker exec molecule-container molecule destroy
+          targets:             "./"
+      - name:                  "Molecule: Create"
+        run:                   molecule create
+      - name:                  "Molecule: Converge"
+        run:                   molecule converge
+      - name:                  "Molecule: Idempotence"
+        run:                   molecule idempotence
+      - name:                  "Molecule: Verify"
+        run:                   molecule verify
+      - name:                  "Molecule: Destroy"
+        run:                   molecule destroy
