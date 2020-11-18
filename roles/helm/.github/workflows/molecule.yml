@@ -19,7 +19,7 @@ jobs:
         image:                 ghcr.io/pandemonium1986/alpine312:latest
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
-          - ${{ github.repository }}:/opt/workspace/${{ github.repository }}
+          - ${{ github.workspace }}:/opt/workspace/${{ github.repository }}
         env:
           ANSIBLE_FORCE_COLOR: "1"
           PY_COLORS:           "1"
