@@ -2,7 +2,7 @@
 galaxy_info:
   role_name:           k9s
   author:              Michael Maffait
-  description:         Installs k9s from github repository.
+  description:         Install k9s from github repository.
   # company:           your company (optional)
   license:             MIT
   min_ansible_version: 2.9

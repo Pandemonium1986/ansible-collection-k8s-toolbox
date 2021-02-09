@@ -2,7 +2,7 @@
 galaxy_info:
   role_name:           stern
   author:              Michael Maffait
-  description:         Installs stern from github repository.
+  description:         Install stern from github repository.
   # company:           your company (optional)
   license:             MIT
   min_ansible_version: 2.9

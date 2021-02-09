@@ -2,7 +2,7 @@
 galaxy_info:
   role_name:           kubectx
   author:              Michael Maffait
-  description:         Installs kubectx and kubens from github repository.
+  description:         Install kubectx and kubens from github repository.
   # company:           your company (optional)
   license:             MIT
   min_ansible_version: 2.9

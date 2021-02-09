@@ -2,7 +2,7 @@
 galaxy_info:
   role_name:           helm
   author:              Michael Maffait
-  description:         Installs helm from github repository.
+  description:         Install helm from helm repository.
   # company:           your company (optional)
   license:             MIT
   min_ansible_version: 2.9
