@@ -1,5 +1,12 @@
 # Ansible role : helm
 
+* * *
+
+**Disclaimer**  
+All contributions made directly in this repository will be deleted by force push. If you want to contribute, go to [ansible-collection-k8s-toolbox](https://github.com/Pandemonium1986/ansible-collection-k8s-toolbox)
+
+* * *
+
 ![Ansible Role](https://img.shields.io/ansible/role/51080?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-helm.svg?logo=github)

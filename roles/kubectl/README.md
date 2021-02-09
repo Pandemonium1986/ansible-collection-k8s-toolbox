@@ -1,4 +1,11 @@
-# Ansible role : Kubectl
+# Ansible role : kubectl
+
+* * *
+
+**Disclaimer**  
+All contributions made directly in this repository will be deleted by force push. If you want to contribute, go to [ansible-collection-k8s-toolbox](https://github.com/Pandemonium1986/ansible-collection-k8s-toolbox)
+
+* * *
 
 ![Ansible Role](https://img.shields.io/ansible/role/50928?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectl/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
