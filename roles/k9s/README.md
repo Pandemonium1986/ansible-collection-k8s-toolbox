@@ -30,10 +30,6 @@ k9s_checksum:          "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf51
 k9s_version:           "v0.22.1"
 ```
 
-## Dependencies
-
-None.
-
 ## Example Playbook
 
 ```yaml

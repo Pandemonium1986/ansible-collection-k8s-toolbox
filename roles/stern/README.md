@@ -24,14 +24,10 @@ This role is self contained and install stern for debian, ubuntu, linux mint, ce
 From defaults/main.yml :
 
 ```yaml
-stern_path:     "/opt/github/wercker/stern"
-stern_checksum: "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
-stern_version:  "1.11.0"
+stern_installation_path: "/opt/github/stern"
+stern_checksum:          "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
+stern_version:           "1.11.0"
 ```
-
-## Dependencies
-
-None.
 
 ## Example Playbook
 

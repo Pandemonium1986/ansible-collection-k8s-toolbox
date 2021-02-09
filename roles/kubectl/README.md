@@ -21,16 +21,16 @@ This role is self contained and install kubectl via package manager for debian, 
 
 ## Role Variables
 
-None.
+From defaults/main.yml :
 
-## Dependencies
-
-None.
+```yaml
+kubectl_version: "1.20.0"
+```
 
 ## Example Playbook
 
 ```yaml
-- name: Kubectl installation
+- name: kubectl installation
   hosts: all
   become: true
   tasks:

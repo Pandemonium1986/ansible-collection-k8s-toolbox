@@ -21,11 +21,11 @@ This role is self contained and install minikube via package manager for debian,
 
 ## Role Variables
 
-None.
+From defaults/main.yml :
 
-## Dependencies
-
-None.
+```yaml
+minikube_version: "1.17.1"
+```
 
 ## Example Playbook
 

@@ -28,13 +28,9 @@ This role is not self contained. He requires pandemonium1986.kubectl to work cor
 From defaults/main.yml :
 
 ```yaml
-kubectx_path:    "/opt/github"
-kubectx_version: master
+kubectx_installation_path: "/opt/github/kubectx"
+kubectx_version:           "master"
 ```
-
-## Dependencies
-
-None.
 
 ## Example Playbook
 
