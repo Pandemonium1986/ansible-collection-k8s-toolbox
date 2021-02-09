@@ -1,5 +1,5 @@
 ---
-- name:         Ensure k9s directory are created
+- name:         Ensure k9s directories are created
   file:
     path:       "{{ item }}"
     state:      directory
@@ -20,7 +20,7 @@
     src:        "{{ k9s_cache_path }}/{{ asset_name }}"
     dest:       "{{ k9s_installation_path }}"
     remote_src: true
-    mode:         "0755"
+    mode:       "0755"
 
 - name:         Ensure k9s link is created
   file:

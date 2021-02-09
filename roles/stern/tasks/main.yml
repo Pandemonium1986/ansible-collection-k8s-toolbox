@@ -1,5 +1,5 @@
 ---
-- name:       Ensure stern_installation_path directory is created
+- name:       Ensure stern directories are created
   file:
     path:     "{{ stern_installation_path }}"
     state:    directory

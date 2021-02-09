@@ -1,5 +1,5 @@
 ---
-- name:         Ensure helm directory are created
+- name:         Ensure helm directories are created
   file:
     path:       "{{ item }}"
     state:      directory
@@ -20,7 +20,7 @@
     src:        "{{ helm_cache_path }}/{{ asset_name }}"
     dest:       "{{ helm_installation_path }}"
     remote_src: true
-    mode:         "0755"
+    mode:       "0755"
 
 - name:         Ensure helm link is created
   file:
