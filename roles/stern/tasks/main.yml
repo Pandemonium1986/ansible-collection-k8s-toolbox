@@ -7,7 +7,7 @@
 
 - name:       Ensure stern is installed
   get_url:
-    url:      "{{ github_url }}/{{ github_namespace }}/releases/download/{{ stern_version }}/{{ asset_name }}"
+    url:      "{{ source_url }}/{{ github_namespace }}/releases/download/{{ stern_version }}/{{ asset_name }}"
     dest:     "{{ stern_installation_path }}/{{ asset_name }}"
     checksum: "{{ stern_checksum }}"
     mode:     "0755"

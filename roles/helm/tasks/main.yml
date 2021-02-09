@@ -10,7 +10,7 @@
 
 - name:         Ensure helm is installed
   get_url:
-    url:        "{{ helm_url }}/{{ asset_name }}"
+    url:        "{{ source_url }}/{{ asset_name }}"
     dest:       "{{ helm_cache_path }}"
     checksum:   "{{ helm_checksum }}"
     mode:       "0755"

@@ -1,5 +1,5 @@
 ---
-github_url:       "https://github.com"
+source_url:       "https://github.com"
 github_namespace: "derailed/k9s"
 asset_name:       "k9s_Linux_x86_64.tar.gz"
 binary_name:      "k9s"
