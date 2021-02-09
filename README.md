@@ -59,22 +59,26 @@ Simply create a playbook that may be briefly similar to this one :
 Available variables are :
 
 ```yaml
-helm_cache_path:          "/var/cache/github"
-helm_installation_path:   "/opt/github/helm"
-helm_checksum:            "sha256:b664632683c36446deeb85c406871590d879491e3de18978b426769e43a1e82c"
-helm_version:             "v3.3.4"
+helm_cache_path:            "/var/cache/github"
+helm_installation_path:     "/opt/github/helm"
+helm_checksum:              "sha256:b664632683c36446deeb85c406871590d879491e3de18978b426769e43a1e82c"
+helm_version:               "v3.3.4"
 
-k9s_cache_path:           "/var/cache/github"
-k9s_installation_path:    "/opt/github/k9s"
-k9s_checksum:             "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
-k9s_version:              "v0.22.1"
+k9s_cache_path:             "/var/cache/github"
+k9s_installation_path:      "/opt/github/k9s"
+k9s_checksum:               "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
+k9s_version:                "v0.22.1"
 
-kubectx_path:             "/opt/github"
-kubectx_version:          master
+kubectl_version:            "1.20.0"
 
-stern_installation_path:  "/opt/github/stern"
-stern_checksum:           "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
-stern_version:            "1.11.0"
+kubectx_installation_path:  "/opt/github/kubectx"
+kubectx_version:            "master"
+
+minikube_version:           "1.17.1"
+
+stern_installation_path:    "/opt/github/stern"
+stern_checksum:             "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
+stern_version:              "1.11.0"
 ```
 
 ## Contributing
