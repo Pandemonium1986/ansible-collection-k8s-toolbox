@@ -11,9 +11,9 @@ This [Ansible Collection](https://docs.ansible.com/ansible/latest/user_guide/col
 
 This collection contains the following ressources.
 
-| Ressources                                                                      | Comment                                                                                    | Privilege |                                                                    CI Status                                                                    |
-| :------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------- | :-------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
-| **[roles/helm](https://github.com/pandemonium1986/ansible-role-helm)**          | Install helm from the github package and make a symbolic link in /usr/local/bin.           |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)   |
+| Ressources                                                                     | Comment                                                                                    | Privilege |                                                                    CI Status                                                                    |
+| :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- | :-------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
+| **[roles/helm](https://github.com/pandemonium1986/ansible-role-helm)**         | Install helm from the github package and make a symbolic link in /usr/local/bin.           |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)   |
 | **[roles/k9s](https://github.com/pandemonium1986/ansible-role-k9s)**           | Install k9s from the github package and make a symbolic link in /usr/local/bin.            |    true   |    ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-k9s/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)   |
 | **[roles/kubectl](https://github.com/pandemonium1986/ansible-role-kubectl)**   | Install kubectl from google repositories (centos or debian supported).                     |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectl/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
 | **[roles/kubectx](https://github.com/pandemonium1986/ansible-role-kubectx)**   | Install kubectx/kubens from the github package and make a symbolic link in /usr/local/bin. |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectx/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg) |
@@ -38,9 +38,9 @@ Simply create a playbook that may be briefly similar to this one :
 
 ```yaml
 ---
-- name :                                     K8s Toolbox deployement
-  hosts:                                     local
-  become:                                    true
+- name :          K8s Toolbox deployement
+  hosts:          local
+  become:         true
   collections:
     - pandemonium1986.k8s_toolbox
   tasks:
@@ -59,22 +59,22 @@ Simply create a playbook that may be briefly similar to this one :
 Available variables are :
 
 ```yaml
-helm_cache_path:        "/var/cache/github"
-helm_installation_path: "/opt/github/helm"
-helm_checksum:          "sha256:b664632683c36446deeb85c406871590d879491e3de18978b426769e43a1e82c"
-helm_version:           "v3.3.4"
+helm_cache_path:          "/var/cache/github"
+helm_installation_path:   "/opt/github/helm"
+helm_checksum:            "sha256:b664632683c36446deeb85c406871590d879491e3de18978b426769e43a1e82c"
+helm_version:             "v3.3.4"
 
-k9s_cache_path:        "/var/cache/github"
-k9s_installation_path: "/opt/github/k9s"
-k9s_checksum:          "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
-k9s_version:           "v0.22.1"
+k9s_cache_path:           "/var/cache/github"
+k9s_installation_path:    "/opt/github/k9s"
+k9s_checksum:             "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
+k9s_version:              "v0.22.1"
 
-kubectx_path:    "/opt/github"
-kubectx_version: master
+kubectx_path:             "/opt/github"
+kubectx_version:          master
 
-stern_installation_path: "/opt/github/stern"
-stern_checksum:          "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
-stern_version:           "1.11.0"
+stern_installation_path:  "/opt/github/stern"
+stern_checksum:           "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
+stern_version:            "1.11.0"
 ```
 
 ## Contributing
@@ -133,6 +133,14 @@ git push ansible-role-helm $SHA1\:refs/heads/CURRENT_BRANCH -f --no-verify
 ```
 
 Each role can be tested independently via molecule.
+
+##### Guidelines
+
+Feel free to consul before you're contributing
+
+-   [Guidelines](https://github.com/Pandemonium1986/.github/blob/main/CONTRIBUTING.md)
+-   [Code of conduct](https://github.com/Pandemonium1986/.github/blob/main/CODE_OF_CONDUCT.md)
+-   [Security policy](https://github.com/Pandemonium1986/.github/blob/main/SECURITY.md)
 
 ## Authors
 
