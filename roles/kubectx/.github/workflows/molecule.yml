@@ -34,6 +34,11 @@ jobs:
           targets:             "./"
       - name:                  Here is the death fix 😱
         run:                   sed -e s/kubectl/pandemonium1986\.kubectl/g ./meta/main.yml > ./meta/main.yml
+      - name:                  Debug variables
+        run:                   |
+          echo ${{ github.workspace }}
+          ls -l ./
+          cat ./meta/main.yml
       - name:                  "Molecule: Create"
         run:                   molecule create
       - name:                  "Molecule: Converge"
