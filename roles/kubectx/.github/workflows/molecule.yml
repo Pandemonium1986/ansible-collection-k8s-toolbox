@@ -33,7 +33,7 @@ jobs:
         with:
           targets:             "./"
       - name:                  Here is the death fix 😱
-        run:                   sed -e s/kubectl/pandemonium1986\.kubectl/g ./meta/main.yml > ./meta/main.yml
+        run:                   sed -i s/kubectl/pandemonium1986\.kubectl/g ./meta/main.yml > ./meta/main.yml
       - name:                  Debug variables
         run:                   |
           echo ${{ github.workspace }}
