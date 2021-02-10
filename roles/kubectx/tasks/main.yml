@@ -1,20 +1,20 @@
 ---
-- name:         Ensure git package is present
+- name:      Ensure git package is present
   package:
-    name:       git
-    state:      present
+    name:    git
+    state:   present
 
-- name:         Ensure kubectx repository is cloned from GitHub
+- name:      Ensure kubectx repository is cloned from GitHub
   git:
-    repo:       "https://github.com/ahmetb/kubectx"
-    dest:       "{{ kubectx_path }}/ahmetb/kubectx"
-    version:    "{{ kubectx_version }}"
+    repo:    "{{ source_url }}/{{ github_namespace }}"
+    dest:    "{{ kubectx_installation_path }}"
+    version: "{{ kubectx_version }}"
 
-- name:         Ensure kubectx and kubens links are created
+- name:      Ensure kubectx and kubens links are created
   file:
-    src:        "{{ kubectx_path }}/ahmetb/kubectx/{{ item }}"
-    dest:       "/usr/local/bin/{{ item }}"
-    state:      link
+    src:     "{{ kubectx_installation_path }}/{{ item }}"
+    dest:    "/usr/local/bin/{{ item }}"
+    state:   link
   loop:
     - kubens
     - kubectx

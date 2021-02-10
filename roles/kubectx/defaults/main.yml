@@ -1,3 +1,4 @@
 ---
-kubectx_path:    "/opt/github"
-kubectx_version: master
+# https://github.com/ahmetb/kubectx
+kubectx_installation_path: "/opt/github/kubectx"
+kubectx_version:           "master"

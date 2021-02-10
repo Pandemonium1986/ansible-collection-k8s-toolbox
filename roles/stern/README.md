@@ -1,5 +1,12 @@
 # Ansible role : stern
 
+* * *
+
+**Disclaimer**  
+All contributions made directly in this repository will be deleted by force push. If you want to contribute, go to [ansible-collection-k8s-toolbox](https://github.com/Pandemonium1986/ansible-collection-k8s-toolbox)
+
+* * *
+
 ![Ansible Role](https://img.shields.io/ansible/role/51037?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-stern/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-stern.svg?logo=github)
@@ -17,14 +24,10 @@ This role is self contained and install stern for debian, ubuntu, linux mint, ce
 From defaults/main.yml :
 
 ```yaml
-stern_path:     "/opt/github/wercker/stern"
-stern_checksum: "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
-stern_version:  "1.11.0"
+stern_installation_path: "/opt/github/stern"
+stern_checksum:          "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
+stern_version:           "1.11.0"
 ```
-
-## Dependencies
-
-None.
 
 ## Example Playbook
 

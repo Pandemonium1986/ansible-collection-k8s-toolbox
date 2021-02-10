@@ -1,7 +1,7 @@
 ---
 - name:                Ensure minikube is installed
   yum:
-    name:              "https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm"
+    name:              "https://storage.googleapis.com/minikube/releases/v{{ minikube_version }}/minikube-{{ minikube_version }}-0.x86_64.rpm"
     state:             present
     update_cache:      true
     disable_gpg_check: true

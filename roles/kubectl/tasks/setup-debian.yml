@@ -20,6 +20,6 @@
 
 - name:           Ensure kubectl is installed
   apt:
-    name:         kubectl
+    name:         "kubectl={{ kubectl_version }}-00"
     update_cache: true
     state:        present

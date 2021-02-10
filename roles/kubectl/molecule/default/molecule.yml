@@ -2,6 +2,7 @@
 dependency:
   name:               galaxy
   enabled:            false
+  # role-file:        requirements.yml
 driver:
   name:               docker
 lint:                 |

@@ -32,6 +32,13 @@ jobs:
         uses:                  ansible/ansible-lint-action@master
         with:
           targets:             "./"
+      - name:                  Here is the death fix 😱
+        run:                   sed -i s/kubectl/pandemonium1986\.kubectl/g ./meta/main.yml
+      - name:                  Debug variables
+        run:                   |
+          echo ${{ github.workspace }}
+          ls -l ./
+          cat ./meta/main.yml
       - name:                  "Molecule: Create"
         run:                   molecule create
       - name:                  "Molecule: Converge"

@@ -15,4 +15,4 @@ galaxy_info:
     - name:            Ubuntu
       versions:        [ 'bionic' ]
   galaxy_tags:         [ 'kubernetes', 'tool', 'k8s' ]
-  dependencies:        []
+dependencies:          []

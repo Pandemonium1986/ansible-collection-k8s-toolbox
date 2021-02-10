@@ -1,5 +1,12 @@
 # Ansible role : k9s
 
+* * *
+
+**Disclaimer**  
+All contributions made directly in this repository will be deleted by force push. If you want to contribute, go to [ansible-collection-k8s-toolbox](https://github.com/Pandemonium1986/ansible-collection-k8s-toolbox)
+
+* * *
+
 ![Ansible Role](https://img.shields.io/ansible/role/51049?logo=ansible)
 ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-k9s/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-k9s.svg?logo=github)
@@ -22,10 +29,6 @@ k9s_installation_path: "/opt/github/k9s"
 k9s_checksum:          "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
 k9s_version:           "v0.22.1"
 ```
-
-## Dependencies
-
-None.
 
 ## Example Playbook
 
