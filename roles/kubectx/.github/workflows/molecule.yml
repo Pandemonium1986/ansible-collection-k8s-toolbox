@@ -36,7 +36,7 @@ jobs:
         # run:                   sed -e s/kubectl/pandemonium1986\.kubectl/g ${{ github.workspace }}/meta/main.yml > ${{ github.workspace }}/meta/main.yml
         run: |
           ls -l ${{ github.workspace }}
-          cat {{ github.workspace }}/meta/main.yml
+          cat ${{ github.workspace }}/meta/main.yml
       - name:                  "Molecule: Create"
         run:                   molecule create
       - name:                  "Molecule: Converge"
