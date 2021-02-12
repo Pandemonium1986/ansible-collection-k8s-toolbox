@@ -1,72 +1,36 @@
 ---
 dependency:
-  name:               galaxy
-  enabled:            false
-  # role-file:        requirements.yml
+  name:                      galaxy
+  enabled:                   false
+  # role-file:               requirements.yml
 driver:
-  name:               docker
-lint:                 |
+  name:                      docker
+lint:                        |
   set -e
   yamllint .
   ansible-lint
 platforms:
-  - name:             molecule-debian9
-    hostname:         debian9
-    image:            pandemonium1986/debian9:latest
-    pull:             true
-    pre_build_image:  true
-    tty:              true
-    override_command: false
+  - name:                    molecule-${DKR_IMAGE:-debian10}
+    hostname:                ${DKR_IMAGE:-debian10}
+    image:                   pandemonium1986/${DKR_IMAGE:-debian10}:latest
+    pull:                    true
+    pre_build_image:         true
+    tty:                     true
+    override_command:        false
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged:       true
-  - name:             molecule-debian10
-    hostname:         debian10
-    image:            pandemonium1986/debian10:latest
-    pull:             true
-    pre_build_image:  true
-    tty:              true
-    override_command: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged:       true
-  - name:             molecule-centos7
-    hostname:         centos7
-    image:            pandemonium1986/centos7:latest
-    pull:             true
-    pre_build_image:  true
-    tty:              true
-    override_command: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged:       true
-  - name:             molecule-centos8
-    hostname:         centos8
-    image:            pandemonium1986/centos8:latest
-    pull:             true
-    pre_build_image:  true
-    tty:              true
-    override_command: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged:       true
-  - name:             molecule-ubuntu1804
-    hostname:         ubuntu1804
-    image:            pandemonium1986/ubuntu1804:latest
-    pull:             true
-    pre_build_image:  true
-    tty:              true
-    override_command: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged:       true
+    privileged:              true
 provisioner:
-  name:               ansible
-  lint:               |
+  name:                      ansible
+  lint:                      |
     set -e
     ansible-lint
+  config_options:
+    defaults:
+      stdout_callback:       yaml
+      bin_ansible_callbacks: true
 scenario:
-  name:               default
+  name:                      default
 verifier:
-  name:               ansible
-  enabled:            true
+  name:                      ansible
+  enabled:                   true

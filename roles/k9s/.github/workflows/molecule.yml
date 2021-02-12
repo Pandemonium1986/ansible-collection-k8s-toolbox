@@ -1,5 +1,5 @@
 ---
-name:                      "Molecule: Github actions pipeline"
+name:                      "Molecule"
 on:
   schedule:
     - cron:                    "0 21 * * *"
@@ -12,9 +12,28 @@ on:
       - master
 
 jobs:
-  molecule:
-    name:                      "Molecule: Job"
+  lint:
+    name:                      "Ansible: Lint"
     runs-on:                   ubuntu-latest
+    steps:
+      - name:                  "Init: Run checkout@v2"
+        uses:                  actions/checkout@v2
+      - name:                  "Ansible: Lint role"
+        uses:                  ansible/ansible-lint-action@master
+        with:
+          targets:             "./"
+  molecule:
+    name:                      "Molecule: Test"
+    runs-on:                   ubuntu-latest
+    strategy:
+      fail-fast:               false
+      matrix:
+        images:
+          - "centos7"
+          - "centos8"
+          - "debian9"
+          - "debian10"
+          - "ubuntu1804"
     container:
         image:                 ghcr.io/pandemonium1986/alpine312:latest
         volumes:
@@ -23,15 +42,14 @@ jobs:
         env:
           ANSIBLE_FORCE_COLOR: "1"
           PY_COLORS:           "1"
+          DKR_IMAGE:  ${{ matrix.images }}
         options:               >-
           --workdir /opt/workspace/${{ github.repository }}
+    needs:
+      - lint
     steps:
       - name:                  "Init: Run checkout@v2"
         uses:                  actions/checkout@v2
-      - name:                  "Ansible: Lint role"
-        uses:                  ansible/ansible-lint-action@master
-        with:
-          targets:             "./"
       - name:                  "Molecule: Create"
         run:                   molecule create
       - name:                  "Molecule: Converge"
