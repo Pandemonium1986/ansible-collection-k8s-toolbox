@@ -13,7 +13,7 @@ on:
 
 jobs:
   lint:
-    name:                      "Ansible: lint"
+    name:                      "Ansible: Lint"
     runs-on:                   ubuntu-latest
     steps:
       - name:                  "Init: Run checkout@v2"
@@ -23,7 +23,7 @@ jobs:
         with:
           targets:             "./"
   molecule:
-    name:                      "Molecule: test"
+    name:                      "Molecule: Test"
     runs-on:                   ubuntu-latest
     strategy:
       fail-fast:               false
