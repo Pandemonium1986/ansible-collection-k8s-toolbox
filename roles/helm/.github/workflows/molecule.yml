@@ -28,7 +28,7 @@ jobs:
     strategy:
       fail-fast:               false
       matrix:
-        DKR_IMAGE:
+        images:
           - "debian9"
           - "debian10"
     container:
@@ -39,6 +39,7 @@ jobs:
         env:
           ANSIBLE_FORCE_COLOR: "1"
           PY_COLORS:           "1"
+          DKR_IMAGE:  ${{ matrix.images }}
         options:               >-
           --workdir /opt/workspace/${{ github.repository }}
     needs:
