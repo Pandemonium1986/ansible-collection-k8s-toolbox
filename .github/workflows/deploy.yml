@@ -1,0 +1,18 @@
+---
+name:            "Collection deployment"
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+    runs-on:     ubuntu-latest
+    steps:
+    - name:      "Init: Run checkout@v2"
+      uses:      actions/checkout@v2
+    - name:      "Ansible: deploy collection in galaxy"
+      uses:      artis3n/ansible_galaxy_collection@v2
+      with:
+        api_key: ${{ secrets.GALAXY_API_KEY }}
