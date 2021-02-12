@@ -1,5 +1,5 @@
 ---
-name:            "Collection deployment"
+name:                   "Collection deployment"
 
 on:
   release:
@@ -8,11 +8,14 @@ on:
 
 jobs:
   deploy:
-    runs-on:     ubuntu-latest
+    runs-on:            ubuntu-latest
     steps:
-    - name:      "Init: Run checkout@v2"
-      uses:      actions/checkout@v2
-    - name:      "Ansible: deploy collection in galaxy"
-      uses:      artis3n/ansible_galaxy_collection@v2
+    - name:             "Init: Run checkout@v2"
+      uses:             actions/checkout@v2
+    - name:             "Init: Get the version from the tag"
+      run:              echo ::set-env name=RELEASE_VERSION::${GITHUB_REF/refs\/tags\//
+    - name:             "Ansible: deploy collection in galaxy"
+      uses:             artis3n/ansible_galaxy_collection@v2
       with:
-        api_key: ${{ secrets.GALAXY_API_KEY }}
+        api_key:        ${{ secrets.GALAXY_API_KEY }}
+        galaxy_version: ${{ env.RELEASE_VERSION }}
