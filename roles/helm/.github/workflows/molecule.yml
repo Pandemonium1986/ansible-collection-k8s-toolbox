@@ -41,6 +41,8 @@ jobs:
           PY_COLORS:           "1"
         options:               >-
           --workdir /opt/workspace/${{ github.repository }}
+    needs:
+      - lint
     steps:
       - name:                  "Init: Run checkout@v2"
         uses:                  actions/checkout@v2
