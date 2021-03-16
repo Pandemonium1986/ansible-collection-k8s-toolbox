@@ -12,7 +12,7 @@ lint:                        |
 platforms:
   - name:                    molecule-${DKR_IMAGE:-debian10}
     hostname:                ${DKR_IMAGE:-debian10}
-    image:                   pandemonium1986/${DKR_IMAGE:-debian10}:latest
+    image:                   ghcr.io/pandemonium1986/${DKR_IMAGE:-debian10}:latest
     pull:                    true
     pre_build_image:         true
     tty:                     true
