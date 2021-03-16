@@ -33,7 +33,9 @@ jobs:
           - "centos8"
           - "debian9"
           - "debian10"
+          - "debian11"
           - "ubuntu1804"
+          - "ubuntu2004"
     container:
         image:                 ghcr.io/pandemonium1986/alpine312:latest
         volumes:
