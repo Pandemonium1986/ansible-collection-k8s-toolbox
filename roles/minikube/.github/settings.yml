@@ -14,6 +14,48 @@ repository:
   allow_squash_merge:                    false
   allow_merge_commit:                    false
   allow_rebase_merge:                    false
+  # Dependabot
+  enable_automated_security_fixes:       false
+  enable_vulnerability_alerts:           false
+labels:
+  # Defaults
+  - name:                                bug
+    color:                               d73a4a
+    description:                         Something isn't working
+  - name:                                documentation
+    color:                               1b9421
+    description:                         Improvements or additions to documentation
+  - name:                                duplicate
+    color:                               cfd3d7
+    description:                         This issue or pull request already exists
+  - name:                                enhancement
+    color:                               a2eeef
+    description:                         New feature or request
+  - name:                                good first issue
+    color:                               7057ff
+    description:                         Good for newcomers
+  - name:                                help wanted
+    color:                               008672
+    description:                         Extra attention is needed
+  - name:                                invalid
+    color:                               e4e669
+    description:                         This doesn't seem right
+  - name:                                question
+    color:                               d876e3
+    description:                         Further information is requested
+  - name:                                wontfix
+    color:                               ffffff
+    description:                         This will not be worked on
+  # Custom
+  - name:                                dependencies
+    color:                               0366d6
+    description:                         Pull request that update a dependency file
+  - name:                                actions
+    color:                               0366d6
+    description:                         Pull request that update a action
+  - name:                                docker
+    color:                               0366d6
+    description:                         Pull request that update a Dockerfile
 branches:
   - name:                                master
     protection:
