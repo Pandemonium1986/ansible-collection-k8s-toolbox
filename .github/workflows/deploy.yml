@@ -15,7 +15,7 @@ jobs:
     - name:             "Init: Get the version from the tag"
       run:              echo RELEASE_VERSION=${GITHUB_REF/refs\/tags\//} >> $GITHUB_ENV
     - name:             "Ansible: deploy collection in galaxy"
-      uses:             artis3n/ansible_galaxy_collection@v2
+      uses:             artis3n/ansible_galaxy_collection@v2.2.6
       with:
         api_key:        ${{ secrets.GALAXY_API_KEY }}
         galaxy_version: ${{ env.RELEASE_VERSION }}
