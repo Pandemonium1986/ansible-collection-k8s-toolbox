@@ -2,5 +2,5 @@
 # https://github.com/derailed/k9s
 k9s_cache_path:        "/var/cache/github"
 k9s_installation_path: "/opt/github/k9s"
-k9s_checksum:          "sha256:5096820f8c55708b059c3a01c5baeecca210c6b955740419d6b30b3132589619"
-k9s_version:           "v0.24.7"
+k9s_checksum:          "sha256:9a57de7b65c3b7be315e2a187c515fee72245f8ef789de5eb7cca2b7e2e2d158"
+k9s_version:           "v0.24.8"
