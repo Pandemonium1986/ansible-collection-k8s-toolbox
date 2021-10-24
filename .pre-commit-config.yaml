@@ -20,13 +20,13 @@ repos:
 #   - id:        ansible-lint
 - repo:          local
   hooks:
-  - id:          ansible-lint
-    name:        Ansible lint
-    entry:       ansible-lint
-    description: This hook runs the local installation of ansible-lint.
-    language:    python
-    types:       [ file, yaml ]
-    files:       \.(yaml|yml)$
+  # - id:          ansible-lint
+  #   name:        Ansible lint
+  #   entry:       ansible-lint
+  #   description: This hook runs the local installation of ansible-lint.
+  #   language:    python
+  #   types:       [ file, yaml ]
+  #   files:       \.(yaml|yml)$
   - id:          eslint
     name:        Editor Config lint
     entry:       eclint check
