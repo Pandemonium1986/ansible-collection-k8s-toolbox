@@ -11,7 +11,7 @@ jobs:
     runs-on:            ubuntu-latest
     steps:
     - name:             "Init: Run checkout@v2"
-      uses:             actions/checkout@v2
+      uses:             actions/checkout@v3.1.0
     - name:             "Init: Get the version from the tag"
       run:              echo RELEASE_VERSION=${GITHUB_REF/refs\/tags\//} >> $GITHUB_ENV
     - name:             "Ansible: deploy collection in galaxy"
