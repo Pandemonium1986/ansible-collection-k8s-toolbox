@@ -27,12 +27,12 @@ repos:
   #   language:    python
   #   types:       [ file, yaml ]
   #   files:       \.(yaml|yml)$
-  - id:          eslint
-    name:        Editor Config lint
-    entry:       eclint check
-    description: This hook runs the local installation of eclint.
-    language:    node
-    types:       [ file ]
+  # - id:          eslint
+  #   name:        Editor Config lint
+  #   entry:       eclint check
+  #   description: This hook runs the local installation of eclint.
+  #   language:    node
+  #   types:       [ file ]
   - id:          gitlint
     name:        Git lint
     entry:       gitlint
