@@ -21,7 +21,7 @@ jobs:
         with:
           path: 'stern'
       - name: "Ansible: Lint role"
-        uses: ansible/ansible-lint@v6
+        uses: ansible/ansible-lint@main
         with:
           working_directory: "$GITHUB_WORKSPACE/stern"
           args: "."
