@@ -20,8 +20,9 @@ jobs:
         uses: actions/checkout@v4
       - name: "Ansible: Lint role"
         uses: ansible/ansible-lint@main
-        # with:
-        #   working_directory: "./"
+        with:
+          working_directory: "./"
+          args: "."
   molecule:
     name: "Molecule: Test"
     runs-on: ubuntu-latest
