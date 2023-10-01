@@ -21,7 +21,7 @@ jobs:
         with:
           path: 'stern'
       - name: "Debug: Where the fuck am I"
-        run: echo $PWD"
+        run: echo $PWD
       - name: "Ansible: Lint role"
         uses: ansible/ansible-lint@main
         with:
