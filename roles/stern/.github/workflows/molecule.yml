@@ -23,7 +23,7 @@ jobs:
       - name: "Ansible: Lint role"
         uses: ansible/ansible-lint@main
         with:
-          working_directory: "$GITHUB_WORKSPACE/stern"
+        #   working_directory: "$GITHUB_WORKSPACE/stern"
           args: "."
   molecule:
     name: "Molecule: Test"
