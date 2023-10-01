@@ -1,8 +1,8 @@
 ---
-name:                      "Molecule"
+name: "Molecule"
 on:
   schedule:
-    - cron:                    "0 21 * * *"
+    - cron: "0 21 * * *"
   push:
     branches:
       - develop
@@ -14,20 +14,20 @@ on:
 
 jobs:
   lint:
-    name:                      "Ansible: Lint"
-    runs-on:                   ubuntu-latest
+    name: "Ansible: Lint"
+    runs-on: ubuntu-latest
     steps:
-      - name:                  "Init: Run checkout@v2"
-        uses:                  actions/checkout@v2
-      - name:                  "Ansible: Lint role"
-        uses:                  ansible/ansible-lint-action@master
+      - name: "Init: Run checkout"
+        uses: actions/checkout@v4
+      - name: "Ansible: Lint role"
+        uses: ansible/ansible-lint@main
         with:
-          targets:             "./"
+          targets: "./"
   molecule:
-    name:                      "Molecule: Test"
-    runs-on:                   ubuntu-latest
+    name: "Molecule: Test"
+    runs-on: ubuntu-latest
     strategy:
-      fail-fast:               false
+      fail-fast: false
       matrix:
         images:
           - "centos7"
@@ -38,28 +38,28 @@ jobs:
           - "ubuntu1804"
           - "ubuntu2004"
     container:
-        image:                 ghcr.io/pandemonium1986/alpine313:nightly
-        volumes:
-          - /var/run/docker.sock:/var/run/docker.sock
-          - ${{ github.workspace }}:/opt/workspace/${{ github.repository }}
-        env:
-          ANSIBLE_FORCE_COLOR: "1"
-          PY_COLORS:           "1"
-          DKR_IMAGE:  ${{ matrix.images }}
-        options:               >-
-          --workdir /opt/workspace/${{ github.repository }}
+      image: ghcr.io/pandemonium1986/alpine313:nightly
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ${{ github.workspace }}:/opt/workspace/${{ github.repository }}
+      env:
+        ANSIBLE_FORCE_COLOR: "1"
+        PY_COLORS: "1"
+        DKR_IMAGE: ${{ matrix.images }}
+      options: >-
+        --workdir /opt/workspace/${{ github.repository }}
     needs:
       - lint
     steps:
-      - name:                  "Init: Run checkout@v2"
-        uses:                  actions/checkout@v2
-      - name:                  "Molecule: Create"
-        run:                   molecule create
-      - name:                  "Molecule: Converge"
-        run:                   molecule converge
-      - name:                  "Molecule: Idempotence"
-        run:                   molecule idempotence
-      - name:                  "Molecule: Verify"
-        run:                   molecule verify
-      - name:                  "Molecule: Destroy"
-        run:                   molecule destroy
+      - name: "Init: Run checkout"
+        uses: actions/checkout@v4
+      - name: "Molecule: Create"
+        run: molecule create
+      - name: "Molecule: Converge"
+        run: molecule converge
+      - name: "Molecule: Idempotence"
+        run: molecule idempotence
+      - name: "Molecule: Verify"
+        run: molecule verify
+      - name: "Molecule: Destroy"
+        run: molecule destroy
