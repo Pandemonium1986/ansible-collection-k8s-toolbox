@@ -7,9 +7,8 @@ on:
     branches:
       - develop
   pull_request:
-    types:
+    branches:
       - main
-      - master
   workflow_dispatch:
 
 jobs:
@@ -22,7 +21,7 @@ jobs:
       - name: "Ansible: Lint role"
         uses: ansible/ansible-lint@main
         with:
-          targets: "./"
+          working_directory: "./"
   molecule:
     name: "Molecule: Test"
     runs-on: ubuntu-latest
