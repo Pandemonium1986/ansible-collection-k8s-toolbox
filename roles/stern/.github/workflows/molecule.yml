@@ -20,8 +20,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: 'stern'
-      - name: "Debug: Where the fuck am I"
-        run: echo $PWD
       - name: "Ansible: Lint role"
         uses: ansible/ansible-lint@main
         with:
