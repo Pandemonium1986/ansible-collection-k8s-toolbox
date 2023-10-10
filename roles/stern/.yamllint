@@ -49,4 +49,5 @@ rules:
     check-multi-line-strings: false
   line-length:
     level: warning
+    max: 150
     allow-non-breakable-inline-mappings: true
