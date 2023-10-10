@@ -1,36 +1,36 @@
 ---
 dependency:
-  name:                      galaxy
-  enabled:                   false
+  name: galaxy
+  enabled: false
   # role-file:               requirements.yml
 driver:
-  name:                      docker
-lint:                        |
+  name: docker
+lint: |
   set -e
   yamllint .
   ansible-lint
 platforms:
-  - name:                    molecule-${DKR_IMAGE:-debian10}
-    hostname:                ${DKR_IMAGE:-debian10}
-    image:                   ghcr.io/pandemonium1986/${DKR_IMAGE:-debian10}:nightly
-    pull:                    true
-    pre_build_image:         true
-    tty:                     true
-    override_command:        false
+  - name: molecule-${DKR_IMAGE:-debian11}
+    hostname: ${DKR_IMAGE:-debian11}
+    image: ghcr.io/pandemonium1986/${DKR_IMAGE:-debian11}:nightly
+    pull: true
+    pre_build_image: true
+    tty: true
+    override_command: false
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged:              true
+    privileged: true
 provisioner:
-  name:                      ansible
-  lint:                      |
+  name: ansible
+  lint: |
     set -e
     ansible-lint
   config_options:
     defaults:
-      stdout_callback:       yaml
+      stdout_callback: yaml
       bin_ansible_callbacks: true
 scenario:
-  name:                      default
+  name: default
 verifier:
-  name:                      ansible
-  enabled:                   true
+  name: ansible
+  enabled: true

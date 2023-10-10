@@ -1,19 +1,19 @@
 ---
-- name:                   Prepare
-  hosts:                  all
+- name: Prepare
+  hosts: all
   vars:
-    users:                [ "pandemonium" ]
+    users: ["pandemonium"]
   tasks:
-    - name:               Ensure sudo is installed on all platforms
-      package:
-        name:             [ sudo ]
-        state:            present
-    - name:               Create molecule user
-      user:
-        name:             "{{ item }}"
+    - name: Ensure sudo is installed on all platforms
+      ansible.builtin.package:
+        name: [sudo]
+        state: present
+    - name: Create molecule user
+      ansible.builtin.user:
+        name: "{{ item }}"
         generate_ssh_key: true
-        ssh_key_bits:     4096
-        ssh_key_comment:  fake_key
-        ssh_key_file:     .ssh/id_rsa
-        ssh_key_type:     rsa
-      loop:               "{{ users }}"
+        ssh_key_bits: 4096
+        ssh_key_comment: fake_key
+        ssh_key_file: .ssh/id_rsa
+        ssh_key_type: rsa
+      loop: "{{ users }}"
