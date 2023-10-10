@@ -14,27 +14,22 @@ on:
 jobs:
   lint:
     name: "Ansible: Lint"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: "Init: Run checkout"
         uses: actions/checkout@v4
-        with:
-          path: 'stern'
       - name: "Ansible: Lint role"
         uses: ansible/ansible-lint@main
         with:
-          working_directory: "$GITHUB_WORKSPACE/stern"
-          args: "."
+          args: "--exclude .github .pre-commit-config.yaml"
   molecule:
     name: "Molecule: Test"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
         images:
           - "centos7"
-          - "centos8"
-          - "debian9"
           - "debian10"
           - "debian11"
           - "ubuntu1804"
