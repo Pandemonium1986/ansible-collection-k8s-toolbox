@@ -1,18 +1,19 @@
 ---
 galaxy_info:
-  role_name:           stern
-  author:              Michael Maffait
-  description:         Install stern from github repository.
+  role_name: stern
+  author: Michael Maffait
+  namespace: pandemonium1986
+  description: Install stern from github repository.
   # company:           your company (optional)
-  license:             MIT
-  min_ansible_version: 2.9
-  github_branch:       master
+  license: MIT
+  min_ansible_version: "2.9"
+  github_branch: master
   platforms:
-    - name:            Debian
-      versions:        [ 'stretch', 'buster' ]
-    - name:            EL
-      versions:        [ '7', '8' ]
-    - name:            Ubuntu
-      versions:        [ 'bionic' ]
-  galaxy_tags:         [ 'kubernetes', 'tool', 'k8s' ]
-dependencies:          []
+    - name: Debian
+      versions: ["stretch", "buster"]
+    - name: EL
+      versions: ["7", "8"]
+    - name: Ubuntu
+      versions: ["bionic"]
+  galaxy_tags: ["kubernetes", "tool", "k8s"]
+dependencies: []
