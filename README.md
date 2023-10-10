@@ -83,7 +83,7 @@ stern_version:              "1.11.0"
 
 ## Contributing
 
-##### Pre-commit
+### Pre-commit
 
 I use pre commit to manage the commit-msg commit and pre-push hooks.
 To install the hooks proceed as follows
@@ -94,7 +94,7 @@ pre-commit install --hook-type pre-push && \
 pre-commit install
 ```
 
-##### Monorepo
+### Monorepo
 
 The ansible collections are composed of a set of roles/plug-ins/modules ...
 My choice was made to group all the roles in a "monorepo", the collection itself, and to ensure the building of the roles in "manyrepo".
@@ -138,17 +138,17 @@ git push ansible-role-helm $SHA1\:refs/heads/CURRENT_BRANCH -f --no-verify
 
 Each role can be tested independently via molecule.
 
-##### Guidelines
+### Guidelines
 
 Feel free to consul before you're contributing
 
--   [Guidelines](https://github.com/Pandemonium1986/.github/blob/main/CONTRIBUTING.md)
--   [Code of conduct](https://github.com/Pandemonium1986/.github/blob/main/CODE_OF_CONDUCT.md)
--   [Security policy](https://github.com/Pandemonium1986/.github/blob/main/SECURITY.md)
+- [Guidelines](https://github.com/Pandemonium1986/.github/blob/main/CONTRIBUTING.md)
+- [Code of conduct](https://github.com/Pandemonium1986/.github/blob/main/CODE_OF_CONDUCT.md)
+- [Security policy](https://github.com/Pandemonium1986/.github/blob/main/SECURITY.md)
 
 ## Authors
 
--   **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)
+- **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)
 
 ## License
 

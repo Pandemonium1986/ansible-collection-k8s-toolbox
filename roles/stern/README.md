@@ -8,7 +8,7 @@ All contributions made directly in this repository will be deleted by force push
 * * *
 
 ![Ansible Role](https://img.shields.io/ansible/role/51037?logo=ansible)
-![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-stern/workflows/Molecule:%20Github%20actions%20pipeline/badge.svg)
+[![Molecule](https://github.com/Pandemonium1986/ansible-role-stern/actions/workflows/molecule.yml/badge.svg)](https://github.com/Pandemonium1986/ansible-role-stern/actions/workflows/molecule.yml)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-stern.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-stern.svg?logo=github)
 ![Ansible Quality Score](https://img.shields.io/ansible/quality/51037?logo=ansible)
@@ -46,7 +46,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
--   **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)
+- **Michael Maffait** - _Initial work_ - [Pandemonium1986](https://github.com/Pandemonium1986)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
