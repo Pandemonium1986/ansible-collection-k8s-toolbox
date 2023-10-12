@@ -1,7 +1,7 @@
 ---
-- name:             Converge
-  hosts:            all
+- name: Converge
+  hosts: all
   tasks:
-    - name:         "Include ansible-role-k9s"
-      include_role:
-        name:       "ansible-role-k9s"
+    - name: "Include ansible-role-k9s"
+      ansible.builtin.include_role:
+        name: "ansible-role-k9s"

@@ -1,7 +1,7 @@
 ---
-- name:             Converge
-  hosts:            all
+- name: Converge
+  hosts: all
   tasks:
-    - name:         "Include ansible-role-stern"
-      include_role:
-        name:       "ansible-role-stern"
+    - name: "Include ansible-role-stern"
+      ansible.builtin.include_role:
+        name: "ansible-role-stern"

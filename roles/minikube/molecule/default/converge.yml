@@ -1,7 +1,7 @@
 ---
-- name:             Converge
-  hosts:            all
+- name: Converge
+  hosts: all
   tasks:
-    - name:         "Include ansible-role-minikube"
-      include_role:
-        name:       "ansible-role-minikube"
+    - name: "Include ansible-role-minikube"
+      ansible.builtin.include_role:
+        name: "ansible-role-minikube"
