@@ -24,6 +24,6 @@
 
 - name: Ensure stern link is created
   ansible.builtin.file:
-    src: "{{ stern_installation_path }}/{{ asset_name }}"
+    src: "{{ stern_installation_path }}/{{ binary_name }}"
     dest: "/usr/local/bin/{{ binary_name }}"
     state: link
