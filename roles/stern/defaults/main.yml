@@ -1,5 +1,6 @@
 ---
-# https://github.com/wercker/stern
+# https://github.com/stern/stern
+stern_cache_path: "/var/cache/github"
 stern_installation_path: "/opt/github/stern"
-stern_checksum:          "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
-stern_version:           "1.11.0"
+stern_checksum: "sha256:de79474d9197582e38da0dccc8cd14af23d6b52b72bee06b62943c19ab95125e"
+stern_version: "1.26.0"

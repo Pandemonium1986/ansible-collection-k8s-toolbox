@@ -1,15 +1,25 @@
 ---
 - name: Ensure stern directories are created
   ansible.builtin.file:
-    path: "{{ stern_installation_path }}"
+    path: "{{ item }}"
     state: directory
     mode: "0755"
+  loop:
+    - "{{ stern_cache_path }}"
+    - "{{ stern_installation_path }}"
 
 - name: Ensure stern is installed
   ansible.builtin.get_url:
     url: "{{ source_url }}/{{ github_namespace }}/releases/download/{{ stern_version }}/{{ asset_name }}"
-    dest: "{{ stern_installation_path }}/{{ asset_name }}"
+    dest: "{{ stern_cache_path }}"
     checksum: "{{ stern_checksum }}"
+    mode: "0755"
+
+- name: Unarchive stern archive into stern_installation_path
+  ansible.builtin.unarchive:
+    src: "{{ stern_cache_path }}/{{ asset_name }}"
+    dest: "{{ stern_installation_path }}"
+    remote_src: true
     mode: "0755"
 
 - name: Ensure stern link is created
