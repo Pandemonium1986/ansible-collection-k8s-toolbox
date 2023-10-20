@@ -2,7 +2,7 @@
 - name: Ensure k9s directories are created
   ansible.builtin.file:
     path: "{{ item }}"
-    state: directorydr
+    state: directory
     mode: "0755"
   loop:
     - "{{ k9s_cache_path }}"
