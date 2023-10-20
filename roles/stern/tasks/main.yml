@@ -10,7 +10,7 @@
 
 - name: Ensure stern is installed
   ansible.builtin.get_url:
-    url: "{{ source_url }}/{{ github_namespace }}/releases/download/{{ stern_version }}/{{ asset_name }}"
+    url: "{{ source_url }}/{{ github_namespace }}/releases/download/v{{ stern_version }}/{{ asset_name }}"
     dest: "{{ stern_cache_path }}"
     checksum: "{{ stern_checksum }}"
     mode: "0755"
