@@ -31,7 +31,6 @@ jobs:
         images:
           - "centos7"
           - "debian11"
-          - "ubuntu1804"
           - "ubuntu2004"
     container:
       image: ghcr.io/pandemonium1986/alpine313:nightly

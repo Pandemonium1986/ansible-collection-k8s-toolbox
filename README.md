@@ -61,24 +61,24 @@ Available variables are :
 ```yaml
 helm_cache_path:            "/var/cache/github"
 helm_installation_path:     "/opt/github/helm"
-helm_checksum:              "sha256:b664632683c36446deeb85c406871590d879491e3de18978b426769e43a1e82c"
-helm_version:               "v3.3.4"
+helm_checksum:              "sha256:98c363564d00afd0cc3088e8f830f2a0eeb5f28755b3d8c48df89866374a1ed0"
+helm_version:               "v3.13.1"
 
 k9s_cache_path:             "/var/cache/github"
 k9s_installation_path:      "/opt/github/k9s"
-k9s_checksum:               "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
-k9s_version:                "v0.22.1"
+k9s_checksum:               "sha256:e507831ebd5f9b8c0380f212669f352c6e34cb760c916b498babae8be83c4392"
+k9s_version:                "v0.27.4"
 
-kubectl_version:            "1.20.0"
+kubectl_version:            "1.28.2"
 
 kubectx_installation_path:  "/opt/github/kubectx"
 kubectx_version:            "master"
 
-minikube_version:           "1.17.1"
+minikube_version:           "1.31.2"
 
 stern_installation_path:    "/opt/github/stern"
-stern_checksum:             "sha256:e0b39dc26f3a0c7596b2408e4fb8da533352b76aaffdc18c7ad28c833c9eb7db"
-stern_version:              "1.11.0"
+stern_checksum:             "sha256:de79474d9197582e38da0dccc8cd14af23d6b52b72bee06b62943c19ab95125e"
+stern_version:              "1.26.0"
 ```
 
 ## Contributing

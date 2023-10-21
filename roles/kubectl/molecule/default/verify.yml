@@ -14,7 +14,7 @@
           ignore_errors: true
         - name: Run kubectl (privileged user) # noqa: no-changed-when
           ansible.builtin.command:
-            cmd: kubectl version --short=true --client=true
+            cmd: kubectl version --client=true
           register: kubectl_result_priv
           ignore_errors: true
         - name: Ensure kubectl is installed and running (privileged user)
@@ -34,7 +34,7 @@
           ignore_errors: true
         - name: Run kubectl (non-privileged user) # noqa: no-changed-when
           ansible.builtin.command:
-            cmd: kubectl version --short=true --client=true
+            cmd: kubectl version --client=true
           register: kubectl_result_nopriv
           ignore_errors: true
         - name: Ensure kubectl is installed and running (non-privileged user)
