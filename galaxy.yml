@@ -1,17 +1,17 @@
 ---
-namespace:    pandemonium1986
-name:         k8s_toolbox
-version:      1.1.0
-readme:       README.md
+namespace: pandemonium1986
+name: k8s_toolbox
+version: 1.1.0
+readme: README.md
 authors:
-- Michael Maffait <michael.maffait@gmail.com>
-description:  An ansible collection to quickly deploy kubernete management tools.
+  - Michael Maffait <michael.maffait@gmail.com>
+description: An ansible collection to quickly deploy kubernete management tools.
 # license:
 # - MIT
-license_file: 'LICENSE'
-tags:         [ 'k8s', 'tool', 'kubernetes' ]
+license_file: "LICENSE"
+tags: ["k8s", "tool", "kubernetes"]
 dependencies: {}
-repository:   https://github.com/Pandemonium1986/ansible-collection-k8s-toolbox
+repository: https://github.com/Pandemonium1986/ansible-collection-k8s-toolbox
 # documentation: http://docs.example.com
 # homepage:   http://example.com
 # issues:     http://example.com/issue/tracker
