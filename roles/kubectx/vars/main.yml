@@ -1,5 +1,5 @@
 ---
-source_url:       "https://github.com"
+source_url: "https://github.com"
 github_namespace: "ahmetb/kubectx"
 asset_name:
   - kubens

@@ -2,12 +2,12 @@
 
 #### Major Changes
 
--   N/A
+- N/A
 
 #### Minor Changes
 
--   N/A
+- N/A
 
 # Bug fixes
 
--   N/A
+- N/A
