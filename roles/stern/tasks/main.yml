@@ -1,4 +1,7 @@
 ---
+- name: Include fact-global
+  ansible.builtin.import_tasks: fact-global.yml
+
 - name: Include distro tasks
   ansible.builtin.include_tasks: setup-{{ _global_distribution }}.yml
 
