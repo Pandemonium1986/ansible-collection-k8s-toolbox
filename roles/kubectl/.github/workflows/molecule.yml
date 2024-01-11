@@ -14,7 +14,7 @@ on:
 jobs:
   lint:
     name: "Ansible: Lint"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: "Init: Run checkout"
         uses: actions/checkout@v4
@@ -24,14 +24,17 @@ jobs:
           args: "--exclude .github .pre-commit-config.yaml"
   molecule:
     name: "Molecule: Test"
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         images:
           - "centos7"
-          - "debian11"
-          - "ubuntu2004"
+          - "debian12"
+          - "ubuntu2204"
+          - "sles15sp3"
+          - "sles15sp5"
+          - "tumbleweed"
     container:
       image: ghcr.io/pandemonium1986/alpine313:nightly
       volumes:
@@ -41,6 +44,7 @@ jobs:
         ANSIBLE_FORCE_COLOR: "1"
         PY_COLORS: "1"
         DKR_IMAGE: ${{ matrix.images }}
+        DKR_TAG: "main"
       options: >-
         --workdir /opt/workspace/${{ github.repository }}
     needs:
