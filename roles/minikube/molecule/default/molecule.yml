@@ -9,15 +9,16 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: molecule-${DKR_IMAGE:-debian11}
-    hostname: ${DKR_IMAGE:-debian11}
-    image: ghcr.io/pandemonium1986/${DKR_IMAGE:-debian11}:nightly
+  - name: molecule-${DKR_IMAGE:-debian12}
+    hostname: ${DKR_IMAGE:-debian12}
+    image: ghcr.io/pandemonium1986/${DKR_IMAGE:-debian12}:${DKR_TAG:-nightly}
     pull: true
     pre_build_image: true
     tty: true
     override_command: false
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    tmpfs:
+      - /run
+      - /tmp
     privileged: true
 provisioner:
   name: ansible
