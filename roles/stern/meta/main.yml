@@ -4,16 +4,20 @@ galaxy_info:
   author: Michael Maffait
   namespace: pandemonium1986
   description: Install stern from github repository.
-  # company:           your company (optional)
+  # company: your company (optional)
   license: MIT
-  min_ansible_version: "2.9"
-  github_branch: master
+  min_ansible_version: "2.10"
+  github_branch: main
   platforms:
     - name: Debian
-      versions: ["stretch", "buster"]
+      versions: ["bookworm"]
     - name: EL
-      versions: ["7", "8"]
+      versions: ["7"]
+    - name: opensuse
+      versions: ["15.3", "15.5"]
+    - name: SLES
+      versions: ["15SP3", "15SP5"]
     - name: Ubuntu
-      versions: ["bionic"]
+      versions: ["jammy"]
   galaxy_tags: ["kubernetes", "tool", "k8s"]
 dependencies: []
