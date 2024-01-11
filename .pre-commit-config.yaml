@@ -31,6 +31,15 @@ repos:
         args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
         name: "pre-commit: end-of-file-fixer"
+  - repo: local
+    hooks:
+      - id: splitsh-lite
+        name: Splitsh-lite hook
+        entry: ./.bin/split.sh
+        description: This hook runs split.sh to split the monorepo to manyrepo
+        language: script
+        stages: [push]
+        verbose: true
   - repo: https://github.com/jorisroovers/gitlint
     rev: v0.19.1
     hooks:
