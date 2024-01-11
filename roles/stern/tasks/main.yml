@@ -1,4 +1,7 @@
 ---
+- name: Include distro tasks
+  ansible.builtin.include_tasks: setup-{{ _init_distribution }}.yml
+
 - name: Ensure stern directories are created
   ansible.builtin.file:
     path: "{{ item }}"
