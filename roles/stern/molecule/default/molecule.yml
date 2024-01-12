@@ -11,8 +11,8 @@ lint: |
 platforms:
   - name: molecule-${DKR_IMAGE:-debian12}
     hostname: ${DKR_IMAGE:-debian12}
-    image: ghcr.io/pandemonium1986/${DKR_IMAGE:-debian12}:${DKR_TAG:-nightly}
-    pull: true
+    image: ${DKR_REGISTRY:-ghcr.io/pandemonium1986}/${DKR_IMAGE:-debian12}:${DKR_TAG:-nightly}
+    pull: ${DKR_PULL_IMAGE:-true}
     pre_build_image: true
     tty: true
     override_command: false
