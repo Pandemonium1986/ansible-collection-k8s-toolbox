@@ -1,0 +1,4 @@
+---
+- name: Kubectl Major version
+  ansible.builtin.set_fact:
+    _kubectl_major_version: "{{ kubectl_version[0:4] | lower }}"

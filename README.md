@@ -11,18 +11,18 @@ This [Ansible Collection](https://docs.ansible.com/ansible/latest/user_guide/col
 
 This collection contains the following ressources.
 
-| Ressources                                                                     | Comment                                                                                    | Privilege |                                                                    CI Status                                                                    |
-| :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- | :-------: | :---------------------------------------------------------------------------------------------------------------------------------------------: |
-| **[roles/helm](https://github.com/pandemonium1986/ansible-role-helm)**         | Install helm from the github package and make a symbolic link in /usr/local/bin.           |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule/badge.svg)   |
-| **[roles/k9s](https://github.com/pandemonium1986/ansible-role-k9s)**           | Install k9s from the github package and make a symbolic link in /usr/local/bin.            |    true   |    ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-k9s/workflows/Molecule/badge.svg)   |
-| **[roles/kubectl](https://github.com/pandemonium1986/ansible-role-kubectl)**   | Install kubectl from google repositories (centos or debian supported).                     |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectl/workflows/Molecule/badge.svg) |
-| **[roles/kubectx](https://github.com/pandemonium1986/ansible-role-kubectx)**   | Install kubectx/kubens from the github package and make a symbolic link in /usr/local/bin. |    true   |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectx/workflows/Molecule/badge.svg) |
-| **[roles/minikube](https://github.com/pandemonium1986/ansible-role-minikube)** | Install minikube from google repositories (centos or debian supported).                    |    true   | ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-minikube/workflows/Molecule/badge.svg) |
-| **[roles/stern](https://github.com/pandemonium1986/ansible-role-stern)**       | Install stern from the github package and make a symbolic link in /usr/local/bin.          |    true   |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-stern/workflows/Molecule/badge.svg)  |
+| Ressources                                                                     | Comment                                                                                    | Privilege |                                                    CI Status                                                     |
+| :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------- | :-------: | :--------------------------------------------------------------------------------------------------------------: |
+| **[roles/helm](https://github.com/pandemonium1986/ansible-role-helm)**         | Install helm from the github package and make a symbolic link in /usr/local/bin.           |   true    |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-helm/workflows/Molecule/badge.svg)   |
+| **[roles/k9s](https://github.com/pandemonium1986/ansible-role-k9s)**           | Install k9s from the github package and make a symbolic link in /usr/local/bin.            |   true    |   ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-k9s/workflows/Molecule/badge.svg)    |
+| **[roles/kubectl](https://github.com/pandemonium1986/ansible-role-kubectl)**   | Install kubectl from google repositories (centos, debian, openSUSE supported).             |   true    | ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectl/workflows/Molecule/badge.svg)  |
+| **[roles/kubectx](https://github.com/pandemonium1986/ansible-role-kubectx)**   | Install kubectx/kubens from the github package and make a symbolic link in /usr/local/bin. |   true    | ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-kubectx/workflows/Molecule/badge.svg)  |
+| **[roles/minikube](https://github.com/pandemonium1986/ansible-role-minikube)** | Install minikube from google repositories (centos, debian, openSUSE supported).            |   true    | ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-minikube/workflows/Molecule/badge.svg) |
+| **[roles/stern](https://github.com/pandemonium1986/ansible-role-stern)**       | Install stern from the github package and make a symbolic link in /usr/local/bin.          |   true    |  ![Github pipeline status](https://github.com/Pandemonium1986/ansible-role-stern/workflows/Molecule/badge.svg)   |
 
 ### Prerequisites
 
-The only prerequisite is to have an [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html) >= 2.9
+The only prerequisite is to have an [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html) >= 2.10
 
 ### Installing
 
@@ -38,47 +38,46 @@ Simply create a playbook that may be briefly similar to this one :
 
 ```yaml
 ---
-- name :          K8s Toolbox deployement
-  hosts:          local
-  become:         true
-  collections:
-    - pandemonium1986.k8s_toolbox
+- name: K8s Toolbox deployement
+  hosts: local
+  become: true
   tasks:
     - import_role:
-        name:    pandemonium1986.minikube
+        name: pandemonium1986.k8s_toolbox.minikube
     - import_role:
-        name:    pandemonium1986.kubectx
+        name: pandemonium1986.k8s_toolbox.kubectx
     - import_role:
-        name:    pandemonium1986.k9s
+        name: pandemonium1986.k8s_toolbox.k9s
     - import_role:
-        name:    pandemonium1986.stern
+        name: pandemonium1986.k8s_toolbox.stern
     - import_role:
-        name:    pandemonium1986.helm
+        name: pandemonium1986.k8s_toolbox.helm
 ```
 
 Available variables are :
 
 ```yaml
-helm_cache_path:            "/var/cache/github"
-helm_installation_path:     "/opt/github/helm"
-helm_checksum:              "sha256:98c363564d00afd0cc3088e8f830f2a0eeb5f28755b3d8c48df89866374a1ed0"
-helm_version:               "v3.13.1"
+helm_cache_path: "/var/cache/github"
+helm_installation_path: "/opt/github/helm"
+helm_checksum: "sha256:bbb6e7c6201458b235f335280f35493950dcd856825ddcfd1d3b40ae757d5c7d"
+helm_version: "v3.13.3"
 
-k9s_cache_path:             "/var/cache/github"
-k9s_installation_path:      "/opt/github/k9s"
-k9s_checksum:               "sha256:e507831ebd5f9b8c0380f212669f352c6e34cb760c916b498babae8be83c4392"
-k9s_version:                "v0.27.4"
+k9s_cache_path: "/var/cache/github"
+k9s_installation_path: "/opt/github/k9s"
+k9s_checksum: "sha256:3904f39c9ff4eaedfa35c81e2fa9e42817505375fbbce9932d01bfbc4c2673d8"
+k9s_version: "v0.31.5"
 
-kubectl_version:            "1.28.2"
+kubectl_version: "1.29.0"
 
-kubectx_installation_path:  "/opt/github/kubectx"
-kubectx_version:            "master"
+kubectx_installation_path: "/opt/github/kubectx"
+kubectx_version: "master"
 
-minikube_version:           "1.31.2"
+minikube_version: "1.32.0"
 
-stern_installation_path:    "/opt/github/stern"
-stern_checksum:             "sha256:de79474d9197582e38da0dccc8cd14af23d6b52b72bee06b62943c19ab95125e"
-stern_version:              "1.26.0"
+stern_cache_path: "/var/cache/github"
+stern_installation_path: "/opt/github/stern"
+stern_checksum: "sha256:1501989591f7cf9b946ff38c24453cda0c672932acf2271ef6e894f5cfb384ed"
+stern_version: "1.28.0"
 ```
 
 ## Contributing

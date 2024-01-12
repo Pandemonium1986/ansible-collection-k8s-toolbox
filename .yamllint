@@ -11,7 +11,7 @@ rules:
   brackets:
     level: error
     min-spaces-inside: 0
-    max-spaces-inside: 1
+    max-spaces-inside: 0
     min-spaces-inside-empty: 0
     max-spaces-inside-empty: 0
   colons:
@@ -47,8 +47,7 @@ rules:
     spaces: 2
     indent-sequences: consistent
     check-multi-line-strings: false
-  line-length: disable
-
-  # quoted-strings:
-  #   level:                  warning
-  #   quote-type:             double
+  line-length:
+    level: warning
+    max: 150
+    allow-non-breakable-inline-mappings: true

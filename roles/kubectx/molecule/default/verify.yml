@@ -15,12 +15,13 @@
         - name: Run kubectx (privileged user) # noqa: no-changed-when
           ansible.builtin.command:
             cmd: /usr/local/bin/kubectx
+          no_log: true
           register: kubectx_result_priv
           ignore_errors: true
         - name: Ensure kubectx is installed and running (privileged user)
           ansible.builtin.assert:
             that:
-              - kubectx_result_priv.rc == 0
+              - kubectx_result_priv.stderr == "kubectl is not installed"
             fail_msg: "kubectx does not seem to be available for the user {{ whoami_result_priv.stdout }}"
             success_msg: "kubectx is available for the user {{ whoami_result_priv.stdout }}"
     - name: Run kubectx as a non-privileged user
@@ -35,11 +36,12 @@
         - name: Run kubectx (non-privileged user) # noqa: no-changed-when
           ansible.builtin.command:
             cmd: /usr/local/bin/kubectx
+          no_log: true
           register: kubectx_result_nopriv
           ignore_errors: true
         - name: Ensure kubectx is installed and running (non-privileged user)
           ansible.builtin.assert:
             that:
-              - kubectx_result_nopriv.rc == 0
+              - kubectx_result_priv.stderr == "kubectl is not installed"
             fail_msg: "kubectx does not seem to be available for the user {{ whoami_result_nopriv.stdout }}"
             success_msg: "kubectx is available for the user {{ whoami_result_nopriv.stdout }}"

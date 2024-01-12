@@ -6,7 +6,7 @@
 
 - name: Ensure kubectx repository is cloned from GitHub
   ansible.builtin.git:
-    repo: "{{ source_url }}/{{ github_namespace }}"
+    repo: "{{ _source_url }}/{{ _github_namespace }}"
     dest: "{{ kubectx_installation_path }}"
     version: "{{ kubectx_version }}"
 
@@ -15,6 +15,4 @@
     src: "{{ kubectx_installation_path }}/{{ item }}"
     dest: "/usr/local/bin/{{ item }}"
     state: link
-  loop:
-    - kubens
-    - kubectx
+  loop: "{{ _asset_name }}"

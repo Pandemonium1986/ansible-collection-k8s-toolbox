@@ -1,17 +1,16 @@
 # Ansible role : k9s
 
-* * *
+---
 
 **Disclaimer**  
 All contributions made directly in this repository will be deleted by force push. If you want to contribute, go to [ansible-collection-k8s-toolbox](https://github.com/Pandemonium1986/ansible-collection-k8s-toolbox)
 
-* * *
+---
 
-![Ansible Role](https://img.shields.io/ansible/role/51049?logo=ansible)
+[![Ansible Role](https://img.shields.io/ansible/role/d/pandemonium1986/k9s?logo=Ansible&color=blue)](https://galaxy.ansible.com/ui/standalone/roles/pandemonium1986/k9s/)
 [![Molecule](https://github.com/Pandemonium1986/ansible-role-k9s/actions/workflows/molecule.yml/badge.svg)](https://github.com/Pandemonium1986/ansible-role-k9s/actions/workflows/molecule.yml)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-k9s.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-k9s.svg?logo=github)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/51049?logo=ansible)
 
 Install and configure k9s from github repository.
 
@@ -24,10 +23,10 @@ This role is self contained and install k9s for debian, ubuntu, linux mint, cent
 From defaults/main.yml :
 
 ```yaml
-k9s_cache_path:        "/var/cache/github"
+k9s_cache_path: "/var/cache/github"
 k9s_installation_path: "/opt/github/k9s"
-k9s_checksum:          "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
-k9s_version:           "v0.22.1"
+k9s_checksum: "sha256:42d8aef6b839a9bc60de29d2461521596ce2d1f66347dbf5196983229cfeafd2"
+k9s_version: "v0.22.1"
 ```
 
 ## Example Playbook

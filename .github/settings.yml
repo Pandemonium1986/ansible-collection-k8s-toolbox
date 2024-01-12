@@ -1,8 +1,8 @@
 ---
 repository:
   name: "ansible-collection-k8s-toolbox"
-  description: "Ansible Collection - K8s Toolbox "
-  # homepage:                            https://example.github.io/
+  description: "Ansible Collection - K8s Toolbox"
+  # homepage: https://example.github.io/
   topics: "automation, k8s, ansible-collection"
   private: false
   has_issues: true
