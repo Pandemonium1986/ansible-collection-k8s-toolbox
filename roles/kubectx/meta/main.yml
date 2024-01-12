@@ -20,5 +20,4 @@ galaxy_info:
     - name: Ubuntu
       versions: ["jammy"]
   galaxy_tags: ["kubernetes", "tool", "k8s"]
-dependencies:
-  - role: "kubectl"
+dependencies: []
