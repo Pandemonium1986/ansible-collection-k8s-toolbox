@@ -1,6 +1,6 @@
 ---
-- name: Ensure tar and unzip are installed
+- name: Ensure unarchive applications are installed
   community.general.zypper:
-    name: [tar, unzip]
+    name: [gzip, tar, unzip]
     state: present
     update_cache: true
