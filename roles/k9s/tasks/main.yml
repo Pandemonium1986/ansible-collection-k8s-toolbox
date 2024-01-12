@@ -16,20 +16,20 @@
 
 - name: Ensure k9s is installed
   ansible.builtin.get_url:
-    url: "{{ _source_url }}/{{ _github_namespace }}/releases/download/{{ _k9s_version }}/{{ _asset_name }}"
+    url: "{{ _source_url }}/{{ _github_namespace }}/releases/download/{{ k9s_version }}/{{ _asset_name }}"
     dest: "{{ k9s_cache_path }}"
     checksum: "{{ k9s_checksum }}"
     mode: "0755"
 
 - name: Unarchive k9s archive into k9s_installation_path
   ansible.builtin.unarchive:
-    src: "{{ k9s_cache_path }}/{{ asset_name }}"
+    src: "{{ k9s_cache_path }}/{{ _asset_name }}"
     dest: "{{ k9s_installation_path }}"
     remote_src: true
     mode: "0755"
 
 - name: Ensure k9s link is created
   ansible.builtin.file:
-    src: "{{ k9s_installation_path }}/{{ binary_name }}"
-    dest: "/usr/local/bin/{{ binary_name }}"
+    src: "{{ k9s_installation_path }}/{{ _binary_name }}"
+    dest: "/usr/local/bin/{{ _binary_name }}"
     state: link

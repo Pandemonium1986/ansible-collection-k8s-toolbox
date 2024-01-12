@@ -31,5 +31,5 @@
 - name: Ensure helm link is created
   ansible.builtin.file:
     src: "{{ helm_installation_path }}/{{ _platform_name }}/{{ _binary_name }}"
-    dest: "/usr/local/bin/{{ binary_name }}"
+    dest: "/usr/local/bin/{{ _binary_name }}"
     state: link

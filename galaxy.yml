@@ -5,7 +5,7 @@ version: 1.1.0
 readme: README.md
 authors:
   - Michael Maffait <michael.maffait@gmail.com>
-description: An ansible collection to quickly deploy kubernete management tools.
+description: An ansible collection for rapid deployment of kubernetes management tools
 # license:
 # - MIT
 license_file: "LICENSE"
