@@ -1,3 +1,6 @@
 ---
+- name: Include fact-global
+  ansible.builtin.import_tasks: fact-global.yml
+
 - name: Ensure minikube is installed according to the variety of the OS
-  ansible.builtin.include_tasks: setup-{{ ansible_distribution_file_variety | lower }}.yml
+  ansible.builtin.include_tasks: setup-{{ _global_os_family }}.yml
