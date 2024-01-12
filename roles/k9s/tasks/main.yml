@@ -16,7 +16,7 @@
 
 - name: Ensure k9s is installed
   ansible.builtin.get_url:
-    url: "{{ source_url }}/{{ github_namespace }}/releases/download/{{ k9s_version }}/{{ asset_name }}"
+    url: "{{ _source_url }}/{{ _github_namespace }}/releases/download/{{ _k9s_version }}/{{ _asset_name }}"
     dest: "{{ k9s_cache_path }}"
     checksum: "{{ k9s_checksum }}"
     mode: "0755"

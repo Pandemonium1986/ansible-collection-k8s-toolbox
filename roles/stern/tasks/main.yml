@@ -16,20 +16,20 @@
 
 - name: Ensure stern is installed
   ansible.builtin.get_url:
-    url: "{{ source_url }}/{{ github_namespace }}/releases/download/v{{ stern_version }}/{{ asset_name }}"
+    url: "{{ _source_url }}/{{ _github_namespace }}/releases/download/v{{ stern_version }}/{{ _asset_name }}"
     dest: "{{ stern_cache_path }}"
     checksum: "{{ stern_checksum }}"
     mode: "0755"
 
 - name: Unarchive stern archive into stern_installation_path
   ansible.builtin.unarchive:
-    src: "{{ stern_cache_path }}/{{ asset_name }}"
+    src: "{{ stern_cache_path }}/{{ _asset_name }}"
     dest: "{{ stern_installation_path }}"
     remote_src: true
     mode: "0755"
 
 - name: Ensure stern link is created
   ansible.builtin.file:
-    src: "{{ stern_installation_path }}/{{ binary_name }}"
-    dest: "/usr/local/bin/{{ binary_name }}"
+    src: "{{ stern_installation_path }}/{{ _binary_name }}"
+    dest: "/usr/local/bin/{{ _binary_name }}"
     state: link
