@@ -4,4 +4,4 @@
   tasks:
     - name: "Include ansible-role-kubectl"
       ansible.builtin.include_role:
-        name: "ansible-role-kubectl"
+        name: "kubectl"

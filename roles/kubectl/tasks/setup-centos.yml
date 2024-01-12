@@ -3,13 +3,13 @@
   ansible.builtin.yum_repository:
     name: Kubernetes
     description: Google Kubernetes repo
-    baseurl: "https://packages.cloud.google.com/yum/repos/kubernetes-{{ yum_repo }}-x86_64"
+    baseurl: "https://pkgs.k8s.io/core:/stable:/v{{ _kubectl_major_version }}/rpm/"
     enabled: true
     gpgcheck: true
-    gpgkey: "https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg"
+    gpgkey: "{{ _yum_key_url }}"
 
 - name: Ensure kubectl is installed
   ansible.builtin.yum:
-    name: "kubectl-{{ kubectl_version }}-0.x86_64"
+    name: "kubectl-{{ kubectl_version }}"
     update_cache: true
     state: present

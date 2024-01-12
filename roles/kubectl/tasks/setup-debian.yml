@@ -3,23 +3,27 @@
   ansible.builtin.apt:
     name:
       - apt-transport-https
+      - ca-certificates
+      - curl
       - gpg
     update_cache: true
     state: present
 
-- name: Ensure packages.cloud.google.com key is added
-  ansible.builtin.apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    state: present
+- name: Add Kubernetes apt repository key.
+  ansible.builtin.get_url:
+    url: "{{ _apt_key_url }}"
+    dest: /etc/apt/trusted.gpg.d/kubernetes-apt-keyring.asc
+    mode: '0644'
+    force: true
 
 - name: Ensure kubernetes dists are enabled
   ansible.builtin.apt_repository:
-    repo: "deb https://apt.kubernetes.io/ kubernetes-{{ apt_dists }} main"
+    repo: "deb https://pkgs.k8s.io/core:/stable:/v{{ _kubectl_major_version }}/deb/ /"
     state: present
     filename: kubernetes
 
 - name: Ensure kubectl is installed
   ansible.builtin.apt:
-    name: "kubectl={{ kubectl_version }}-00"
+    name: "kubectl={{ kubectl_version }}-1.1"
     update_cache: true
     state: present

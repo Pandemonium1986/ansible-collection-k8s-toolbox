@@ -1,3 +1,3 @@
 ---
-apt_dists: xenial
-yum_repo: el7
+_apt_key_url: "https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key"
+_yum_key_url: "https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key"
