@@ -6,4 +6,4 @@
   ansible.builtin.import_tasks: fact-role.yml
 
 - name: Ensure kubectl is installed according to the variety of the OS
-  ansible.builtin.include_tasks: setup-{{ _global_distribution }}.yml
+  ansible.builtin.include_tasks: setup-{{ _global_os_family }}.yml

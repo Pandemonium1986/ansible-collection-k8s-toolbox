@@ -8,7 +8,7 @@
     auto_import_keys: true
 
 - name: Ensure kubectl is installed
-  ansible.builtin.package:
+  community.general.zypper:
     name: "kubectl-{{ kubectl_version }}"
     update_cache: true
     state: present
