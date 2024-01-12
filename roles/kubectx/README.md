@@ -7,11 +7,10 @@ All contributions made directly in this repository will be deleted by force push
 
 * * *
 
-![Ansible Role](https://img.shields.io/ansible/role/51012?logo=ansible)
+[![Ansible Role](https://img.shields.io/ansible/role/d/pandemonium1986/kubectx?logo=Ansible&color=blue)](https://galaxy.ansible.com/ui/standalone/roles/pandemonium1986/kubectx/)
 [![Molecule](https://github.com/Pandemonium1986/ansible-role-kubectx/actions/workflows/molecule.yml/badge.svg)](https://github.com/Pandemonium1986/ansible-role-kubectx/actions/workflows/molecule.yml)
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-kubectx.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-kubectx.svg?logo=github)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/51012?logo=ansible)
 
 Installs kubectx and kubens from github repository.
 
@@ -20,7 +19,7 @@ Installs kubectx and kubens from github repository.
 This role is not self contained. He requires pandemonium1986.kubectl to work correctly.
 
 ```sh
-  ansible-galaxy install -f pandemonium1986.kubectl
+ansible-galaxy install -f pandemonium1986.kubectl
 ```
 
 ## Role Variables
