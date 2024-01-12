@@ -2,5 +2,5 @@
 # https://github.com/stern/stern
 stern_cache_path: "/var/cache/github"
 stern_installation_path: "/opt/github/stern"
-stern_checksum: "sha256:de79474d9197582e38da0dccc8cd14af23d6b52b72bee06b62943c19ab95125e"
-stern_version: "1.26.0"
+stern_checksum: "sha256:1501989591f7cf9b946ff38c24453cda0c672932acf2271ef6e894f5cfb384ed"
+stern_version: "1.28.0"
