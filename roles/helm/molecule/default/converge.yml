@@ -4,4 +4,4 @@
   tasks:
     - name: "Include ansible-role-helm"
       ansible.builtin.include_role:
-        name: "ansible-role-helm"
+        name: "helm"

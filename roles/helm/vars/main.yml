@@ -1,5 +1,5 @@
 ---
 _source_url: "https://get.helm.sh"
 _platform_name: "linux-amd64"
-_asset_name: "helm-{{ helm_version }}-{{ platform_name }}.tar.gz"
+_asset_name: "helm-{{ helm_version }}-{{ _platform_name }}.tar.gz"
 _binary_name: "helm"
