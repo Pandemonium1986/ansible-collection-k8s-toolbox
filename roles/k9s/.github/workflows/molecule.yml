@@ -1,5 +1,5 @@
 ---
-name: "Molecule"
+name: "Molecule Workflow"
 on:
   schedule:
     - cron: "0 21 * * *"
@@ -12,16 +12,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
-    name: "Ansible: Lint"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Init: Run checkout"
-        uses: actions/checkout@v4
-      - name: "Ansible: Lint role"
-        uses: ansible/ansible-lint@main
-        with:
-          args: "--exclude .github .pre-commit-config.yaml"
+  called-linter:
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+    name: "Called: GitHub Super Linter Workflow"
+    uses: pandemonium1986/.github/.github/workflows/called-linter.yml@main
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
   molecule:
     name: "Molecule: Test"
     runs-on: ubuntu-latest
@@ -36,7 +35,7 @@ jobs:
           - "sles15sp5"
           - "tumbleweed"
     container:
-      image: ghcr.io/pandemonium1986/alpine313:nightly
+      image: ghcr.io/pandemonium1986/alpine318:2.0.0
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ${{ github.workspace }}:/opt/workspace/${{ github.repository }}
@@ -44,11 +43,11 @@ jobs:
         ANSIBLE_FORCE_COLOR: "1"
         PY_COLORS: "1"
         DKR_IMAGE: ${{ matrix.images }}
-        DKR_TAG: "main"
+        DKR_TAG: "nightly"
       options: >-
         --workdir /opt/workspace/${{ github.repository }}
     needs:
-      - lint
+      - called-linter
     steps:
       - name: "Init: Run checkout"
         uses: actions/checkout@v4
