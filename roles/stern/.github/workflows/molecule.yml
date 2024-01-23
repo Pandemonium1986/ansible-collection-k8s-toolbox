@@ -35,7 +35,7 @@ jobs:
           - "sles15sp5"
           - "tumbleweed"
     container:
-      image: ghcr.io/pandemonium1986/alpine318:2.0.0
+      image: ghcr.io/pandemonium1986/alpine318:2.0.1
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ${{ github.workspace }}:/opt/workspace/${{ github.repository }}
