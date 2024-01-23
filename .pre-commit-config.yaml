@@ -73,3 +73,8 @@ repos:
     hooks:
       - id: ansible-lint
         name: "ansible-lint: lint ansible playbooks, roles and collections"
+  - repo: https://github.com/syntaqx/git-hooks
+    rev: v0.0.18
+    hooks:
+      - id: shellcheck
+        name: "shellcheck: lint bash files"
