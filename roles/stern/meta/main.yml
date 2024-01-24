@@ -6,7 +6,7 @@ galaxy_info:
   description: Install stern from github repository.
   # company: your company (optional)
   license: MIT
-  min_ansible_version: "2.10"
+  min_ansible_version: "2.15"
   github_branch: main
   platforms:
     - name: Debian

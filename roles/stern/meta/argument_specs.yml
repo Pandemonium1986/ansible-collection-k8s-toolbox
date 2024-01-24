@@ -1,0 +1,28 @@
+---
+argument_specs:
+  main:
+    short_description: Install stern from github repository.
+    description:
+      - Install stern from github repository.
+      - There is only one entry point, which is main.
+      - You can customize the stern installation by choosing the cache path, installation path and stern version.
+    version_added: 2.2.0
+    author:
+      - Michael Maffait
+    options:
+      stern_cache_path:
+        description: "Path to download stern installer."
+        type: "path"
+        required: true
+      stern_installation_path:
+        description: "Path where stern will be installed."
+        type: "path"
+        required: true
+      stern_checksum:
+        description: "Installer checksum."
+        type: "str"
+        required: true
+      stern_version:
+        description: "Stern version to downloaded."
+        type: "str"
+        required: true
