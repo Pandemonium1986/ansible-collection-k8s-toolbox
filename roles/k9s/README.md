@@ -12,7 +12,7 @@ All contributions made directly in this repository will be deleted by force push
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-k9s.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-k9s.svg?logo=github)
 
-Install and configure k9s from github repository.
+Install and configure k9s from GitHub repository.
 
 ## Requirements
 

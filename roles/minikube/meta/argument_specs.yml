@@ -1,0 +1,16 @@
+---
+argument_specs:
+  main:
+    short_description: Install minikube using native package management.
+    description:
+      - Install minikube using native package management.
+      - There is only one entry point, which is main.
+      - You can customize the minikube installation by choosing the minikube version.
+    version_added: 2.2.0
+    author:
+      - Michael Maffait
+    options:
+      minikube_version:
+        description: "Minikube version to installed."
+        type: "str"
+        required: true

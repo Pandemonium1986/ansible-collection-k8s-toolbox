@@ -4,10 +4,6 @@ dependency:
   enabled: false
 driver:
   name: docker
-lint: |
-  set -e
-  yamllint .
-  ansible-lint
 platforms:
   - name: molecule-${DKR_IMAGE:-debian12}
     hostname: ${DKR_IMAGE:-debian12}
@@ -22,9 +18,6 @@ platforms:
     privileged: true
 provisioner:
   name: ansible
-  lint: |
-    set -e
-    ansible-lint
   config_options:
     defaults:
       stdout_callback: yaml

@@ -2,12 +2,18 @@
 - name: Prepare
   hosts: all
   vars:
-    users: ["pandemonium"]
+    users: ["pandemonium", "alice", "bob"]
+    packages: ["sudo"]
   tasks:
-    - name: Ensure sudo is installed on all platforms
+    - name: Ensure packages are installed on all platforms
       ansible.builtin.package:
-        name: [sudo]
+        name: "{{ packages }}"
         state: present
+    - name: Create molecule group
+      ansible.builtin.group:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ users }}"
     - name: Create molecule user
       ansible.builtin.user:
         name: "{{ item }}"

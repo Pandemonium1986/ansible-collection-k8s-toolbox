@@ -12,7 +12,7 @@ All contributions made directly in this repository will be deleted by force push
 ![GitHub release](https://img.shields.io/github/release/Pandemonium1986/ansible-role-stern.svg?logo=github)
 ![Github license](https://img.shields.io/github/license/Pandemonium1986/ansible-role-stern.svg?logo=github)
 
-Install and configure stern from github repository.
+Install and configure stern from GitHub repository.
 
 ## Requirements
 

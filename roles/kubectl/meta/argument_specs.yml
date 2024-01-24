@@ -1,0 +1,16 @@
+---
+argument_specs:
+  main:
+    short_description: Install kubectl using native package management.
+    description:
+      - Install kubectl using native package management.
+      - There is only one entry point, which is main.
+      - You can customize the kubectl installation by choosing the kubectl version.
+    version_added: 2.2.0
+    author:
+      - Michael Maffait
+    options:
+      kubectl_version:
+        description: "Kubectl version to installed."
+        type: "str"
+        required: true

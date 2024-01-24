@@ -1,0 +1,28 @@
+---
+argument_specs:
+  main:
+    short_description: Install k9s from github repository.
+    description:
+      - Install k9s from github repository.
+      - There is only one entry point, which is main.
+      - You can customize the k9s installation by choosing the cache path, installation path and k9s version.
+    version_added: 2.2.0
+    author:
+      - Michael Maffait
+    options:
+      k9s_cache_path:
+        description: "Path to download k9s installer."
+        type: "path"
+        required: true
+      k9s_installation_path:
+        description: "Path where k9s will be installed."
+        type: "path"
+        required: true
+      k9s_checksum:
+        description: "Installer checksum."
+        type: "str"
+        required: true
+      k9s_version:
+        description: "K9s version to downloaded."
+        type: "str"
+        required: true

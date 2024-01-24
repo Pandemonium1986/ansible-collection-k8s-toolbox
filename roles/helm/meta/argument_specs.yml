@@ -1,0 +1,28 @@
+---
+argument_specs:
+  main:
+    short_description: Install helm from helm repository.
+    description:
+      - Install helm from helm repository.
+      - There is only one entry point, which is main.
+      - You can customize the helm installation by choosing the cache path, installation path and helm version.
+    version_added: 2.2.0
+    author:
+      - Michael Maffait
+    options:
+      helm_cache_path:
+        description: "Path to download helm installer."
+        type: "path"
+        required: true
+      helm_installation_path:
+        description: "Path where helm will be installed."
+        type: "path"
+        required: true
+      helm_checksum:
+        description: "Installer checksum."
+        type: "str"
+        required: true
+      helm_version:
+        description: "Helm version to downloaded."
+        type: "str"
+        required: true
