@@ -2,5 +2,5 @@
 # https://github.com/helm/helm
 helm_cache_path: "/var/cache/github"
 helm_installation_path: "/opt/github/helm"
-helm_checksum: "sha256:bbb6e7c6201458b235f335280f35493950dcd856825ddcfd1d3b40ae757d5c7d"
-helm_version: "v3.13.3"
+helm_checksum: "sha256:85e1573e76fa60af14ba7e9ec75db2129b6884203be866893fa0b3f7e41ccd5e"
+helm_version: "v3.14.3"

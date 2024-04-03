@@ -1,7 +1,7 @@
 ---
 namespace: pandemonium1986
 name: k8s_toolbox
-version: 2.3.0
+version: 24.4.0
 readme: README.md
 authors:
   - Michael Maffait <michael.maffait@gmail.com>
